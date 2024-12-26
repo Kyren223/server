@@ -22,7 +22,7 @@
     config = {
       credential = {
         helper = store
-      ;}
+      };
     };
   };
 
