@@ -10,13 +10,11 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
   ];
+
   boot.loader.grub = {
-    # no need to set devices, disko will add all devices that have a EF02 partition to the list already
-    # devices = [ ];
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
-  services.openssh.enable = true;
 
   environment.systemPackages = map lib.lowPrio [
     pkgs.curl
@@ -24,9 +22,11 @@
     pkgs.neovim
   ];
 
-  users.users.root.initialPassword = "1234";
+  services.openssh.enable = true;
+  services.openssh.passwordAuthentication = false;
+
+  users.users.root.hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
   users.users.root.openssh.authorizedKeys.keys = [
-    # change this to your ssh key
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
   ];
 
