@@ -4,7 +4,10 @@
     nginx = {
       enable = true;
       virtualHosts."185.170.113.195" = {
-        listen = [ 80 ];
+        listen = [{
+          addr = "0.0.0.0";
+          port = 80;
+        }];
         locations."/" = {
           index = "index.html";
           root = pkgs.writeTextDir "index.html" ''
