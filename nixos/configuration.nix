@@ -16,11 +16,19 @@
     efiInstallAsRemovable = true;
   };
 
-  environment.systemPackages = map lib.lowPrio [
-    pkgs.curl
-    pkgs.gitMinimal
-    pkgs.neovim
+  environment.systemPackages = with pkgs; map lib.lowPrio [
+    curl
+    gitMinimal
+    neovim
   ];
+
+  programs.git = {
+    enable = true;
+    extraConfig = ''
+      [credential]
+        helper = store
+    '';
+  };
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
