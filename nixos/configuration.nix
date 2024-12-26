@@ -21,7 +21,7 @@
     enable = true;
     config = {
       credential = {
-        helper = store
+        helper = "store";
       };
     };
   };
