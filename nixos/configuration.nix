@@ -17,15 +17,6 @@
     neovim
   ];
 
-  programs.git = {
-    enable = true;
-    config = {
-      credential = {
-        helper = "store";
-      };
-    };
-  };
-
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
 
@@ -33,6 +24,13 @@
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
   ];
+
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    age.sshKeyPaths = [ "/var/lib/id_ed25519" ];
+    secrets.github-access-token = { };
+  };
+  nix.extraOptions = "!include /run/secrets/github-access-token";
 
   system.stateVersion = "24.05";
 }
