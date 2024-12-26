@@ -19,10 +19,11 @@
 
   programs.git = {
     enable = true;
-    extraConfig = ''
-      [credential]
+    config = {
+      credential = {
         helper = store
-    '';
+      ;}
+    };
   };
 
   services.openssh.enable = true;
