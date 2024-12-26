@@ -32,5 +32,12 @@
   };
   nix.extraOptions = "!include /run/secrets/github-access-token";
 
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:kyren223/server#default";
+    dates = "minutely"; # Poll every minute
+    flags = [ "--option" "tarball-ttl" "0" ]; # Required for polling below 1h
+  };
+
   system.stateVersion = "24.05";
 }
