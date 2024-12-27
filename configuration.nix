@@ -51,6 +51,7 @@
     flake = "github:kyren223/server#default";
     dates = "minutely"; # Poll interval
     flags = [
+      "--impure" # Be able to read from local files
       "--no-write-lock-file" # Prevent flake.lock from upgrading
       "--option" "tarball-ttl" "0" # Required for polling below 1h
     ];

@@ -26,11 +26,11 @@
     acceptTerms = true;
     defaults.email = "kyren223@proton.me";
     certs."kyren.codes" = {
-      # extraDomainNames = [ "*.kyren.codes" ];
+      extraDomainNames = [ "*.kyren.codes" ];
       dnsProvider = "namecheap";
       environmentFile = "${pkgs.writeText "namecheap-creds" ''
-        NAMECHEAP_API_USER_FILE=/run/secrets/namecheap-api-user
-        NAMECHEAP_API_KEY_FILE=/run/secrets/namecheap-api-key
+        NAMECHEAP_API_USER=${builtins.readFile "/run/secrets/namecheap-api-user"}
+        NAMECHEAP_API_KEY=${builtins.readFile "/run/secrets/namecheap-api-key"}
       ''}";
     };
   };
