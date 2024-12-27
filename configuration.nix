@@ -34,7 +34,7 @@
     ];
   };
   systemd.tmpfiles.rules = [
-    "d /srv/website 0700 website website"
+    "d /srv/website 0700 website users"
   ];
 
   sops = {
