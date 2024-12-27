@@ -44,9 +44,11 @@
     secrets.namecheap-api-user = { };
     secrets.namecheap-api-key = { };
   };
-  nix.extraOptions = "!include /run/secrets/github-access-token";
-  nix.extraOptions = "!include /run/secrets/namecheap-api-user";
-  nix.extraOptions = "!include /run/secrets/namecheap-api-key";
+  nix.extraOptions = ''
+    !include /run/secrets/github-access-token
+    !include /run/secrets/namecheap-api-user
+    !include /run/secrets/namecheap-api-key
+  '';
 
   system.autoUpgrade = {
     enable = true;
