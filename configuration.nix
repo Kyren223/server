@@ -27,6 +27,8 @@
 
   users.users.website = {
     home = "/srv/website";
+    createHome = true;
+    group = "users";
     isSystemUser = true;
     openssh.authorizedKeys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
