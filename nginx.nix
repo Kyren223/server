@@ -57,5 +57,5 @@
   };
   users.users.nginx.extraGroups = [ "acme" ];
 
-  networking.firewall.allowedTCPPorts = [ 443 80 ];
+  networking.firewall.allowedTCPPorts = [ 443 80 3000 ];
 }
