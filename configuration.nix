@@ -45,13 +45,14 @@
     secrets.namecheap-api-key = { };
   };
   nix.extraOptions = "!include /run/secrets/github-access-token";
+  nix.extraOptions = "!include /run/secrets/namecheap-api-user";
+  nix.extraOptions = "!include /run/secrets/namecheap-api-key";
 
   system.autoUpgrade = {
     enable = true;
     flake = "github:kyren223/server#default";
     dates = "minutely"; # Poll interval
     flags = [
-      "--impure" # Be able to read from local files
       "--no-write-lock-file" # Prevent flake.lock from upgrading
       "--option" "tarball-ttl" "0" # Required for polling below 1h
     ];
