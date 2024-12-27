@@ -34,7 +34,7 @@
   # };
   services.nginx.enable = true;
   services.nginx.virtualHosts."test.kyren.codes" = {
-      enableACME = true;
+      useACMEHost = "kyren.codes";
       forceSSL = true;
       locations."/" = {
         index = "index.html";
