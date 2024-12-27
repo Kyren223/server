@@ -53,9 +53,9 @@
         CF_DNS_API_TOKEN_FILE=/run/secrets/cloudflare-dns-api-token
       ''}";
       webroot = null;
-      group = "nginx";
     };
   };
+  users.users.nginx.extraGroups = [ "acme" ];
 
   networking.firewall.allowedTCPPorts = [ 443 80 ];
 }
