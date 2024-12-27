@@ -35,6 +35,7 @@
     defaults.email = "kyren223@proton.me";
     certs."kyren.codes" = {
       extraDomainNames = [ "*.kyren.codes" ];
+      webroot = null;
       dnsProvider = "cloudflare";
       environmentFile = "${pkgs.writeText "cf-creds" ''
         CF_DNS_API_TOKEN_FILE=/run/secrets/cloudflare-dns-api-token
