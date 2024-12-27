@@ -41,6 +41,8 @@
     defaultSopsFile = ./secrets.yaml;
     age.sshKeyPaths = [ "/root/id_ed25519" ];
     secrets.github-access-token = { };
+    secrets.namecheap-api-user = { };
+    secrets.namecheap-api-key = { };
   };
   nix.extraOptions = "!include /run/secrets/github-access-token";
 
