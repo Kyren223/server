@@ -28,6 +28,7 @@
   users.groups.website = {};
   users.users.website = {
     home = "/srv/website";
+    createHome = true;
     isSystemUser = true;
     group = "website";
     openssh.authorizedKeys.keys = [
