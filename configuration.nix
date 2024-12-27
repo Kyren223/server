@@ -31,10 +31,12 @@
     # isNormalUser = true;
     # useDefaultShell = false;
     # hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
+    group = "website";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
     ];
   };
+  users.groups.website = {};
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
