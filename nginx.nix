@@ -8,13 +8,7 @@
       }];
       locations."/" = {
         index = "index.html";
-        root = pkgs.writeTextDir "index.html" ''
-          <html>
-          <body>
-          Hello, world!
-          </body>
-          </html>
-        '';
+        root = /srv/website
       };
     };
   };
