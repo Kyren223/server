@@ -26,7 +26,6 @@
   ];
 
   users.users.website = {
-    createHome = true
     isSystemUser = true;
     group = "users";
     openssh.authorizedKeys.keys = [
