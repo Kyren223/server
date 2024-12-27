@@ -46,7 +46,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:kyren223/server#default";
-    dates = "10s"; # Poll interval
+    dates = "1s"; # Poll interval
     flags = [ "--option" "tarball-ttl" "0" ]; # Required for polling below 1h
   };
 
