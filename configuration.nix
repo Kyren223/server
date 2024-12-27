@@ -41,7 +41,7 @@
     defaultSopsFile = ./secrets.yaml;
     age.sshKeyPaths = [ "/root/id_ed25519" ];
     secrets.github-access-token = { };
-    secrets.cloudflare-dns-api-token = { mode = "0440"; group = "acme"; };
+    # secrets.cloudflare-dns-api-token = { mode = "0440"; group = "acme"; };
   };
   nix.extraOptions = "!include /run/secrets/github-access-token";
 
