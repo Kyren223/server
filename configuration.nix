@@ -47,7 +47,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:kyren223/server#default";
-    dates = "1s"; # Poll interval
+    dates = "minutely"; # Poll interval
     flags = [
       "--no-write-lock-file" # Prevent flake.lock from upgrading
       "--option" "tarball-ttl" "0" # Required for polling below 1h
