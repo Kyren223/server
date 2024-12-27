@@ -3,8 +3,8 @@
     enable = true;
     virtualHosts."kyren.codes" = {
       forceSSL = true;
-      # enableACME = true;
-      useACMEHost = "kyren.codes";
+      enableACME = true;
+      # useACMEHost = "kyren.codes";
       locations."/" = {
         proxyPass = "http://localhost:80";
       };
