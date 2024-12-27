@@ -46,12 +46,20 @@
     acceptTerms = true;
     defaults.email = "kyren223@proton.me";
     certs."kyren.codes" = {
-      extraDomainNames = [ "test.kyren.codes" ];
-      webroot = null;
+      domain = "kyren.codes";
       dnsProvider = "cloudflare";
       environmentFile = "${pkgs.writeText "cf-creds" ''
         CF_DNS_API_TOKEN_FILE=/run/secrets/cloudflare-dns-api-token
       ''}";
+      webroot = null;
+    };
+    certs."*.kyren.codes" = {
+      domain = "*.kyren.codes";
+      dnsProvider = "cloudflare";
+      environmentFile = "${pkgs.writeText "cf-creds" ''
+        CF_DNS_API_TOKEN_FILE=/run/secrets/cloudflare-dns-api-token
+      ''}";
+      webroot = null;
     };
   };
 
