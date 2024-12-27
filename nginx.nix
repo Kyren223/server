@@ -22,18 +22,18 @@
     };
   };
 
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "kyren223@proton.me";
-    certs."kyren.codes" = {
-      extraDomainNames = [ "*.kyren.codes" ];
-      dnsProvider = "namecheap";
-      environmentFile = "${pkgs.writeText "namecheap-creds" ''
-        NAMECHEAP_API_USER_FILE=/run/secrets/namecheap-api-user
-        NAMECHEAP_API_KEY_FILE=/root/namecheap-api-key
-      ''}";
-    };
-  };
+  # security.acme = {
+  #   acceptTerms = true;
+  #   defaults.email = "kyren223@proton.me";
+  #   certs."kyren.codes" = {
+  #     # extraDomainNames = [ "*.kyren.codes" ];
+  #     dnsProvider = "namecheap";
+  #     environmentFile = "${pkgs.writeText "namecheap-creds" ''
+  #       NAMECHEAP_API_USER_FILE=/run/secrets/namecheap-api-user
+  #       NAMECHEAP_API_KEY_FILE=/root/namecheap-api-key
+  #     ''}";
+  #   };
+  # };
 
   networking.firewall.allowedTCPPorts = [ 80 ];
 }
