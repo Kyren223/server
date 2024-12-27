@@ -53,7 +53,7 @@
       ''}";
       webroot = null;
     };
-    certs."*.kyren.codes" = {
+    certs."wildcard.kyren.codes" = {
       domain = "*.kyren.codes";
       dnsProvider = "cloudflare";
       environmentFile = "${pkgs.writeText "cf-creds" ''
