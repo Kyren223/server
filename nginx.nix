@@ -29,8 +29,8 @@
       extraDomainNames = [ "*.kyren.codes" ];
       dnsProvider = "namecheap";
       environmentFile = "${pkgs.writeText "namecheap-creds" ''
-        NAMECHEAP_API_USER=${builtins.readFile "/run/secrets/namecheap-api-user"}
-        NAMECHEAP_API_KEY=${builtins.readFile "/root/namecheap-api-key"}
+        NAMECHEAP_API_USER_FILE=/run/secrets/namecheap-api-user
+        NAMECHEAP_API_KEY_FILE=/root/namecheap-api-key
       ''}";
     };
   };
