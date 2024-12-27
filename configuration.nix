@@ -15,6 +15,7 @@
     curl
     gitMinimal
     neovim
+    cowsay
   ];
 
   services.openssh.enable = true;
