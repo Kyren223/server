@@ -22,5 +22,10 @@
     };
   };
 
+  services.certbot = {
+    enable = true;
+    agreeTerms = true;
+  };
+
   networking.firewall.allowedTCPPorts = [ 80 ];
 }
