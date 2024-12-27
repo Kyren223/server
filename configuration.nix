@@ -26,6 +26,7 @@
   ];
 
   users.users.website = {
+    home = "/home/website";
     createHome = true;
     isSystemUser = true;
     group = "users";
