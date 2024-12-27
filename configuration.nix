@@ -33,9 +33,9 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
     ];
   };
-  systemd.tmpfiles.rules = [
-    "d /srv/website 0700 website website"
-  ];
+  # systemd.tmpfiles.rules = [
+  #   "d /srv/website 0700 website website"
+  # ];
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
