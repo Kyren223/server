@@ -27,8 +27,10 @@
 
   users.users.website = {
     home = "/srv/website";
+    # isSystemUser = true;
     isNormalUser = true;
     useDefaultShell = false;
+    hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6"
     openssh.authorizedKeys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
     ];
@@ -44,7 +46,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:kyren223/server#default";
-    dates = "minutely"; # Poll every minute
+    dates = "10s"; # Poll interval
     flags = [ "--option" "tarball-ttl" "0" ]; # Required for polling below 1h
   };
 
