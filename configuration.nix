@@ -18,7 +18,7 @@
   ];
 
   services.openssh.enable = true;
-  services.openssh.PasswordAuthentication = false;
+  services.openssh.settings.PasswordAuthentication = false;
 
   users.users.root.hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
   users.users.root.openssh.authorizedKeys.keys = [
