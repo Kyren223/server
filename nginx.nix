@@ -7,7 +7,7 @@
       locations."/" = {
         proxyPass = "http://localhost:3000";
       };
-    }
+    };
     virtualHosts."185.170.113.195" = {
       listen = [{
         addr = "0.0.0.0";
@@ -41,5 +41,5 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80, 3000 ];
+  networking.firewall.allowedTCPPorts = [ 80 3000 ];
 }
