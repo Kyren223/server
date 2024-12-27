@@ -8,7 +8,7 @@
       }];
       locations."/" = {
         index = "index.html";
-        root = /srv/website;
+        root = "/srv/website";
       };
     };
   };
