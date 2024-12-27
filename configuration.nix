@@ -41,14 +41,10 @@
     defaultSopsFile = ./secrets.yaml;
     age.sshKeyPaths = [ "/root/id_ed25519" ];
     secrets.github-access-token = { };
-    secrets.namecheap-api-user = { };
-    secrets.namecheap-api-key = { };
+    secrets.namecheap-api-user = { mode = "0440"; group = "acme"; };
+    secrets.namecheap-api-key = { mode = "0440"; group = "acme"; };
   };
-  nix.extraOptions = ''
-    !include /run/secrets/github-access-token
-    !include /run/secrets/namecheap-api-user
-    !include /run/secrets/namecheap-api-key
-  '';
+  nix.extraOptions = "!include /run/secrets/github-access-token";
 
   system.autoUpgrade = {
     enable = true;
