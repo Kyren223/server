@@ -1,20 +1,22 @@
 { pkgs, ... }: {
   services.nginx = {
     enable = true;
+    # virtualHosts."kyren.codes" = {
+    #   forceSSL = true;
+    #   enableACME = true;
+    #   # useACMEHost = "kyren.codes";
+    #   locations."/" = {
+    #     proxyPass = "85.170.113.195:3000";
+    #   };
+    # };
+
     virtualHosts."kyren.codes" = {
       forceSSL = true;
       enableACME = true;
-      # useACMEHost = "kyren.codes";
-      locations."/" = {
-        proxyPass = "http://localhost:3000";
-      };
-    };
-
-    virtualHosts."185.170.113.195" = {
-      listen = [{
-        addr = "0.0.0.0";
-        port = 3000;
-      }];
+      # listen = [{
+      #   addr = "0.0.0.0";
+      #   port = 3000;
+      # }];
 
       locations."/" = {
         index = "index.html";
