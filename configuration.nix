@@ -18,7 +18,7 @@
   ];
 
   services.openssh.enable = true;
-  services.openssh.passwordAuthentication = false;
+  services.openssh.PasswordAuthentication = false;
 
   users.users.root.hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
   users.users.root.openssh.authorizedKeys.keys = [
@@ -26,11 +26,11 @@
   ];
 
   users.users.website = {
-    home = "/home/website";
-    # isSystemUser = true;
-    isNormalUser = true;
+    # home = "/home/website";
+    isSystemUser = true;
+    # isNormalUser = true;
     # useDefaultShell = false;
-    hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
+    # hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
     ];
