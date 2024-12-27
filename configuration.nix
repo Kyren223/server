@@ -37,7 +37,7 @@
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
-    age.sshKeyPaths = [ "/var/lib/id_ed25519" ];
+    age.sshKeyPaths = [ "/root/id_ed25519" ];
     secrets.github-access-token = { };
   };
   nix.extraOptions = "!include /run/secrets/github-access-token";
