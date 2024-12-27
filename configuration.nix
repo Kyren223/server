@@ -47,7 +47,10 @@
     enable = true;
     flake = "github:kyren223/server#default";
     dates = "1s"; # Poll interval
-    flags = [ "--option" "tarball-ttl" "0" ]; # Required for polling below 1h
+    flags = [
+      "--no-write-lock-file" # Prevent flake.lock from upgrading
+      "--option" "tarball-ttl" "0" # Required for polling below 1h
+    ];
   };
 
   nix.settings.extra-experimental-features = [ "nix-command" "flakes" ];
