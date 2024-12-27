@@ -26,10 +26,8 @@
   ];
 
   users.users.website = {
-    # home = "/home/website";
-    # createHome = true;
-    isSystemUser = true;
-    # isNormalUser = true;
+    createHome = false;
+    isNormalUser = true;
     group = "users";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
