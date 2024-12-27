@@ -2,12 +2,13 @@
   services.nginx = {
     enable = true;
     virtualHosts."kyren.codes" = {
-      # forceSSL = true;
-      # enableACME = true;
+      forceSSL = true;
+      enableACME = true;
       locations."/" = {
         proxyPass = "http://localhost:3000";
       };
     };
+
     virtualHosts."185.170.113.195" = {
       listen = [{
         addr = "0.0.0.0";
