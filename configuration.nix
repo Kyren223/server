@@ -15,6 +15,7 @@
     curl
     gitMinimal
     neovim
+    openssl
   ];
 
   services.openssh.enable = true;
