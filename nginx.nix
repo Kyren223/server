@@ -1,37 +1,4 @@
 { pkgs, ... }: {
-  # services.nginx = {
-  #   enable = true;
-  #   # virtualHosts."kyren.codes" = {
-  #   #   forceSSL = true;
-  #   #   enableACME = true;
-  #   #   # useACMEHost = "kyren.codes";
-  #   #   locations."/" = {
-  #   #     proxyPass = "85.170.113.195:3000";
-  #   #   };
-  #   # };
-  #
-  #   virtualHosts."kyren.codes" = {
-  #     forceSSL = true;
-  #     enableACME = true;
-  #     # listen = [{
-  #     #   addr = "0.0.0.0";
-  #     #   port = 3000;
-  #     # }];
-  #
-  #     locations."/" = {
-  #       index = "index.html";
-  #       root = "/srv/website";
-  #     };
-  #
-  #     # locations."/404.html" = {
-  #     #   root = "/srv/website";
-  #     # };
-  #     # extraConfig = ''
-  #     #   error_page 404 /404.html;
-  #     # '';
-  #
-  #   };
-  # };
   services.nginx.enable = true;
   services.nginx.virtualHosts."kyren.codes" = {
       useACMEHost = "kyren.codes";
@@ -40,6 +7,13 @@
         index = "index.html";
         root = "/srv/website";
       };
+
+      locations."/404.html" = {
+        root = "/srv/website";
+      };
+      extraConfig = ''
+        error_page 404 /404.html;
+      '';
   };
 
   security.acme = {
