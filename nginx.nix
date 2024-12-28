@@ -53,7 +53,6 @@
         CF_DNS_API_TOKEN_FILE=/run/secrets/cloudflare-dns-api-token
       ''}";
       webroot = null;
-      server = "https://acme-staging-v02.api.letsencrypt.org/directory";
     };
   };
   users.users.nginx.extraGroups = [ "acme" ];
