@@ -33,7 +33,7 @@
   #   };
   # };
   services.nginx.enable = true;
-  services.nginx.virtualHosts."test.kyren.codes" = {
+  services.nginx.virtualHosts."kyren.codes" = {
       useACMEHost = "kyren.codes";
       forceSSL = true;
       locations."/" = {
