@@ -34,7 +34,7 @@
 
   # Apps
   website.enable = true;
-  actualBudget.enable = true;
+  actualBudget.enable = false;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
