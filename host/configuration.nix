@@ -6,6 +6,7 @@
     ./../nixosModules/secrets.nix
     ./../nixosModules/website.nix
     ./../nixosModules/auto-updade.nix
+    ./../nixosModules/actual-budget.nix
   ];
 
   boot.loader.grub = {
@@ -30,7 +31,10 @@
   ];
 
   secrets.enable = true;
+
+  # Apps
   website.enable = true;
+  actualBudget.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;

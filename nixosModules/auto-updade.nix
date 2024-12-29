@@ -5,6 +5,11 @@
   };
 
   config = lib.mkIf config.autoUpdate.enable {
+
+    # PAT to be able to access the repo
+    sops.secrets.github-access-token = { };
+    nix.extraOptions = "!include /run/secrets/github-access-token";
+
     system.autoUpgrade = {
       enable = true;
       flake = "github:kyren223/server#default";

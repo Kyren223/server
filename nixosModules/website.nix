@@ -25,15 +25,10 @@
       "d /srv/website 0750 website users"
     ];
 
-    # Set secrets for CD (let github actions upload builds to /srv/website)
-    sops.secrets.github-access-token = { };
-    nix.extraOptions = "!include /run/secrets/github-access-token";
-
-
     # Open http and https ports to the public
     networking.firewall.allowedTCPPorts = [ 443 80 ];
 
-    # Make sure acme module is active for the "kyrej.codes" ssl cert
+    # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
 
     services.nginx.enable = true;
