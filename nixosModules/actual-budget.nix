@@ -17,9 +17,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
       ];
       packages = with pkgs; [
-        nodejs_22
-        yarn
-        gitMinimal
+        actual-server
       ];
     };
 
@@ -39,13 +37,10 @@
         forceSSL = true;
 
         locations."/".proxyPass = "http://localhost:5006/";
-        # locations."/".extraConfig = ''
-        #   include /config/nginx/proxy.conf;
-        #   include /config/nginx/resolver.conf;
-        #
-        #   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        #   proxy_set_header Host $host;
-        # '';
+        locations."/".extraConfig = ''
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header Host $host;
+        '';
 
     };
   };
