@@ -11,7 +11,6 @@
   config = lib.mkIf config.actualBudget.enable {
 
     users.users.actualbudget = {
-      createHome = false;
       isNormalUser = true;
       group = "users";
       openssh.authorizedKeys.keys = [
