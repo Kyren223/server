@@ -10,26 +10,8 @@
 
   config = lib.mkIf config.actualBudget.enable {
 
-    users.users.actualbudget = {
-      isNormalUser = true;
-      group = "users";
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
-      ];
-    };
-
-    # Make sure the "website" user has access to /srv/website
-    systemd.tmpfiles.rules = [
-      "d /srv/actual-budget 0700 actualbudget users"
-    ];
-
     services.actual.enable = true;
-    services.actual.settings = {
-      config.dataDir = "/srv/actual-budget";
-      config.serverFiles = "/srv/actual-budget/server-files";
-      config.userFiles = "/srv/actual-budget/user-files";
-      port = 5006;
-    }
+    services.actual.settings.port = 5006;
 
     # Open http and https ports to the public
     networking.firewall.allowedTCPPorts = [ 443 80 ];
