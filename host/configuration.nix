@@ -5,6 +5,7 @@
     ./disk-config.nix
     ./../nixosModules/secrets.nix
     ./../nixosModules/website.nix
+    ./../nixosModules/auto-updade.nix
   ];
 
   boot.loader.grub = {
@@ -12,6 +13,7 @@
     efiInstallAsRemovable = true;
   };
 
+  # Admin utilities
   environment.systemPackages = with pkgs; map lib.lowPrio [
     curl
     gitMinimal
@@ -30,15 +32,8 @@
   secrets.enable = true;
   website.enable = true;
 
-  system.autoUpgrade = {
-    enable = true;
-    flake = "github:kyren223/server#default";
-    dates = "minutely"; # Poll interval
-    flags = [
-      "--no-write-lock-file" # Prevent flake.lock from upgrading
-      "--option" "tarball-ttl" "0" # Required for polling below 1h
-    ];
-  };
+  # Automatically pull this config from git
+  autoUpdate.enable = true;
 
   nix.settings.extra-experimental-features = [ "nix-command" "flakes" ];
 
