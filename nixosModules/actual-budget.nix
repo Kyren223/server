@@ -16,20 +16,15 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
       ];
-      packages = with pkgs; [
-        actual-server
-      ];
     };
 
     # Make sure the "website" user has access to /srv/website
     systemd.tmpfiles.rules = [
-      "d /srv/actual-server 0700 actualbudget users"
+      "d /srv/actual-budget 0700 actualbudget users"
     ];
 
-    services.actual = {
-      enable = true;
-      dataDir = "/srv/actual-server";
-    };
+    services.actual.enable = true;
+    services.actual.settings.config.dataDir = "/srv/actual-budget";
 
     # Open http and https ports to the public
     networking.firewall.allowedTCPPorts = [ 443 80 ];
