@@ -7,6 +7,7 @@
     ./../nixosModules/website.nix
     ./../nixosModules/auto-updade.nix
     ./../nixosModules/actual-budget.nix
+    ./../nixosModules/gitea.nix
   ];
 
   boot.loader.grub = {
@@ -35,6 +36,7 @@
   # Apps
   website.enable = true;
   actualBudget.enable = true;
+  gitea.enable = true
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
