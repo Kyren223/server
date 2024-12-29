@@ -7,7 +7,7 @@
   config = lib.mkIf config.acme.enable {
     sops.secrets.cloudflare-dns-api-token = { mode = "0440"; owner = "acme"; };
 
-    security.acme.acceptTemrs = true;
+    security.acme.acceptTerms = true;
     security.acme.defaults.email = "kyren223@proton.me";
 
     security.acme.certs."kyren.codes" = {
