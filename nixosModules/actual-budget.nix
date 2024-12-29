@@ -26,6 +26,11 @@
       "d /srv/actual-server 0700 actualbudget users"
     ];
 
+    services.actual = {
+      enable = true;
+      dataDir = "/srv/actual-server";
+    };
+
     # Open http and https ports to the public
     networking.firewall.allowedTCPPorts = [ 443 80 ];
 
