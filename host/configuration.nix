@@ -36,7 +36,7 @@
   # Apps
   website.enable = true;
   actualBudget.enable = false;
-  gitea.enable = true
+  gitea.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
