@@ -22,7 +22,7 @@
 
     # Make sure the "website" user has access to /srv/website
     systemd.tmpfiles.rules = [
-      "d /srv/website 0750 website users"
+      "d /srv/website 0750 website nginx"
     ];
 
     # Open http and https ports to the public
