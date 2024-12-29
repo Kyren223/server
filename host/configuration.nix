@@ -3,7 +3,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
-    ./nginx.nix
+    ./../nixosModules/secrets.nix
+    ./../nixosModules/website.nix
   ];
 
   boot.loader.grub = {
@@ -26,26 +27,8 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
   ];
 
-  users.users.website = {
-    createHome = false;
-    isNormalUser = true;
-    group = "users";
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ1B/i/AQLYt6mrz0P/oUJItpvWXp7z0xHNzmcPdtwWd"
-    ];
-  };
-  systemd.tmpfiles.rules = [
-    "d /srv/website 0750 website users"
-  ];
-
-  sops = {
-    defaultSopsFile = ./secrets.yaml;
-    age.sshKeyPaths = [ "/root/id_ed25519" ];
-    secrets.github-access-token = { };
-    secrets.cloudflare-dns-api-token = { mode = "0440"; owner = "acme"; };
-  };
-  nix.extraOptions = "!include /run/secrets/github-access-token";
+  secrets.enable = true;
+  website.enable = true;
 
   system.autoUpgrade = {
     enable = true;

@@ -12,8 +12,8 @@
       modules = [
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
-        ./configuration.nix
-        ./hardware-configuration.nix
+        ./host/configuration.nix
+        ./host/hardware-configuration.nix
       ];
     };
   };
