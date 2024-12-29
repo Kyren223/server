@@ -25,10 +25,12 @@
     services.postgresql.enable = true;
     services.postgresql = {
       ensureDatabases = [ config.services.gitea.user ];
-      ensureUsers = [{
+      ensureUsers = [
+        {
           name = config.services.gitea.database.user;
           ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
-      }];
+        }
+      ];
     };
 
     sops.secrets.gitea-db-password = {
