@@ -24,8 +24,12 @@
     ];
 
     services.actual.enable = true;
-    services.actual.settings.config.dataDir = "/srv/actual-budget";
-    services.actual.settings.port = 5006;
+    services.actual.settings = {
+      config.dataDir = "/srv/actual-budget";
+      config.serverFiles = "/srv/actual-budget/server-files";
+      config.userFiles = "/srv/actual-budget/user-files";
+      port = 5006;
+    }
 
     # Open http and https ports to the public
     networking.firewall.allowedTCPPorts = [ 443 80 ];
