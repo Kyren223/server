@@ -33,20 +33,19 @@
 
     services.nginx.enable = true;
     services.nginx.virtualHosts."kyren.codes" = {
-        useACMEHost = "kyren.codes";
-        forceSSL = true;
-        locations."/" = {
-          index = "index.html";
-          root = "/srv/website";
-        };
+      useACMEHost = "kyren.codes";
+      forceSSL = true;
+      locations."/" = {
+        index = "index.html";
+        root = "/srv/website";
+      };
 
-        locations."/404.html" = {
-          root = "/srv/website";
-        };
-        extraConfig = ''
-          error_page 404 /404.html;
-        '';
+      locations."/404.html" = {
+        root = "/srv/website";
+      };
+      extraConfig = ''
+        error_page 404 /404.html;
+      '';
     };
-
   };
 }
