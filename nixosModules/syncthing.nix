@@ -44,12 +44,8 @@
       dataDir = "/home/syncthing/data";
       configDir = "/home/syncthing/config";
       overrideDevices = true;
-      overrideFolders = true;
-      settings = {
-        devices = {
-          "kyren-laptop" = { id = "XV2ODEO-KBUQSZD-ZNAJD3N-FV4M64X-RQG4NLD-FUIMUL3-OWGNMS4-S5XTDAO"; };
-        };
-        folders = { };
+      settings.devices = {
+        "kyren-laptop" = { id = "XV2ODEO-KBUQSZD-ZNAJD3N-FV4M64X-RQG4NLD-FUIMUL3-OWGNMS4-S5XTDAO"; };
       };
     };
   };
