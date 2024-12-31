@@ -26,12 +26,16 @@
     };
 
     users.users.syncthing = {
-      isNormalUser = true;
-      isSystemUser = lib.mkForce false;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
       ];
     };
+
+    # Make sure the dir is created with the correct perms
+    # Can't use users to do it due to being a system user
+    systemd.tmpfiles.rules = [
+      "d /home/syncthing 0700 syncthing syncthing"
+    ];
 
     services.syncthing = {
       enable = true;
