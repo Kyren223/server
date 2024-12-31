@@ -8,6 +8,7 @@
     ./../nixosModules/auto-updade.nix
     ./../nixosModules/actual-budget.nix
     ./../nixosModules/gitea.nix
+    ./../nixosModules/syncthing.nix
   ];
 
   boot.loader.grub = {
