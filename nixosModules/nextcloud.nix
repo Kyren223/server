@@ -27,7 +27,7 @@
 
     services.nextcloud = {
       enable = true;
-      package = pkgs.nextcloud30;
+      package = pkgs.nextcloud29;
       hostName = "nextcloud.kyren.codes";
       database.createLocally = true;
       config = {
