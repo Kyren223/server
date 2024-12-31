@@ -25,7 +25,7 @@
       locations."/".proxyPass = "http://localhost:8384/";
     };
 
-    servicessyncthing = {
+    services.syncthing = {
       enable = true;
       group = "syncthing";
       user = "syncthing";
@@ -43,8 +43,8 @@
 
     sops.secrets.syncthing-gui-password = { };
     services.syncthing.settings.gui = {
-        user = "username";
-        password = ${config.sops.secrets.syncthing-gui-password.path};
+        user = "server";
+        password = config.sops.secrets.syncthing-gui-password.path;
     };
   };
 }
