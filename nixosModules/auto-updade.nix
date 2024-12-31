@@ -8,7 +8,7 @@
 
     # PAT to be able to access the repo
     sops.secrets.github-access-token = { };
-    nix.extraOptions = "!include /run/secrets/github-access-token";
+    nix.extraOptions = "!include ${config.sops.secrets.github-access-token.path}";
 
     system.autoUpgrade = {
       enable = true;
