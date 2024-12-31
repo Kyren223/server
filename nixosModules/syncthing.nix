@@ -50,8 +50,8 @@
 
     sops.secrets.syncthing-gui-password = { };
     services.syncthing.settings.gui = {
-        user = "server";
-        password = config.sops.secrets.syncthing-gui-password.path;
+      user = "server";
+      password = config.sops.secrets.syncthing-gui-password.path;
     };
   };
 }
