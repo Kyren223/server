@@ -52,11 +52,5 @@
         folders = { };
       };
     };
-
-    sops.secrets.syncthing-gui-password = { };
-    services.syncthing.settings.gui = {
-      user = "server";
-      password = builtins.readFile config.sops.secrets.syncthing-gui-password.path;
-    };
   };
 }
