@@ -37,7 +37,7 @@
   website.enable = true;
   actualBudget.enable = true;
   gitea.enable = true;
-  syncthing.enable = true
+  syncthing.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
