@@ -40,13 +40,15 @@
     services.gitea = {
       enable = true;
       appName = "Kyren's Gitea";
-      domain = "git.kyren.codes";
       database = {
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
       };
-      rootUrl = "https://git.kyren.codes/";
-      httpPort = 3001;
+      settings.server = {
+        DOMAIN = "git.kyren.codes";
+        ROOT_URL = "https://git.kyren.codes/";
+        HTTP_PORT = 3001;
+      };
     };
   };
 }
