@@ -16,9 +16,9 @@
     acme.enable = true;
 
     services.nginx.virtualHosts."git.kyren.codes" = {
-        useACMEHost = "kyren.codes";
-        forceSSL = true;
-        locations."/".proxyPass = "http://localhost:3001/";
+      useACMEHost = "kyren.codes";
+      forceSSL = true;
+      locations."/".proxyPass = "http://localhost:3001/";
     };
 
     # Configure database
