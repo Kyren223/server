@@ -39,8 +39,8 @@
   website.enable = true;
   actualBudget.enable = true;
   gitea.enable = true;
-  syncthing.enable = false;
-  nextcloud.enable = true;
+  syncthing.enable = true;
+  nextcloud.enable = false;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
