@@ -34,7 +34,7 @@
     # Make sure the dir is created with the correct perms
     # Can't use users to do it due to being a system user
     systemd.tmpfiles.rules = [
-      "d /home/syncthing 0700 syncthing syncthing"
+      "d /home/syncthing 0700 syncthing users"
     ];
 
     services.syncthing = {
