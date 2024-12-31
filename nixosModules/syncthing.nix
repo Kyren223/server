@@ -45,7 +45,7 @@
       configDir = "/home/syncthing/config";
       overrideDevices = true;
       settings.devices = {
-        "kyren-laptop" = { id = "XV2ODEO-KBUQSZD-ZNAJD3N-FV4M64X-RQG4NLD-FUIMUL3-OWGNMS4-S5XTDAO"; };
+        "kyren-laptop" = { id = "4B72G5H-JW6CKAL-EWLOJA2-GDY3R6J-A37UXAU-357RR3U-HRNGQ2A-WVWTZQT"; };
       };
     };
   };
