@@ -9,6 +9,7 @@
     ./../nixosModules/actual-budget.nix
     ./../nixosModules/gitea.nix
     ./../nixosModules/syncthing.nix
+    ./../nixosModules/nextcloud.nix
   ];
 
   boot.loader.grub = {
@@ -38,7 +39,8 @@
   website.enable = true;
   actualBudget.enable = true;
   gitea.enable = true;
-  syncthing.enable = true;
+  syncthing.enable = false;
+  nextcloud.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
