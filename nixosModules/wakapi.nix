@@ -23,7 +23,7 @@
       locations."/".proxyPass = "http://localhost:3003/";
     };
 
-    systemd.services.wakapi.serviceConfig.StateDirectoryMode = "0777";
+    systemd.services.wakapi.serviceConfig.StateDirectoryMode = lib.mkForce "0777";
     services.wakapi.enable = true;
     services.wakapi = {
       database.createLocally = false;
