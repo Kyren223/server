@@ -25,15 +25,16 @@
 
     services.wakapi.enable = true;
     services.wakapi = {
-      database.createLocally = false;
+      database.createLocally = true;
       passwordSalt = "dad8uadu8ad8a";
       settings = {
         env = "production";
         port = 3003;
         public_url = "http://waka.kyren.codes:3003";
         db.name = "wakapi_db.db";
-        db.dialect = "sqlite3";
-        db.max_conn = 1;
+        db.dialect = "postgres";
+        # db.dialect = "sqlite3";
+        # db.max_conn = 1;
       };
     };
   };
