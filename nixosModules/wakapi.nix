@@ -16,10 +16,6 @@
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
 
-    systemd.tmpfiles.rules = [
-      "d /var/lib/private/wakapi 0777 root root"
-    ];
-
     services.nginx.enable = true;
     services.nginx.virtualHosts."waka.kyren.codes" = {
       useACMEHost = "kyren.codes";
@@ -27,9 +23,10 @@
       locations."/".proxyPass = "http://localhost:3003/";
     };
 
+    systemd.services.wakapi.serviceConfig.StateDirectoryMode = "0777";
     services.wakapi.enable = true;
     services.wakapi = {
-      database.createLocally = true;
+      database.createLocally = false;
       passwordSalt = "dad8uadu8ad8a";
       settings = {
         env = "production";
