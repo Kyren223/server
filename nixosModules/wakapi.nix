@@ -32,9 +32,9 @@
         port = 3003;
         public_url = "http://waka.kyren.codes:3003";
         db.name = "wakapi_db.db";
-        db.dialect = "postgres";
-        # db.dialect = "sqlite3";
-        # db.max_conn = 1;
+        # db.dialect = "postgres";
+        db.dialect = "sqlite3";
+        db.max_conn = 1;
       };
     };
   };
