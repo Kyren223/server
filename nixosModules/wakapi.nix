@@ -33,6 +33,7 @@
         public_url = "http://waka.kyren.codes:3003";
         db.name = "wakapi_db.db";
         db.dialect = "sqlite3";
+        db.max_conn = 1;
       };
     };
   };
