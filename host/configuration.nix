@@ -10,6 +10,7 @@
     ./../nixosModules/gitea.nix
     ./../nixosModules/syncthing.nix
     ./../nixosModules/nextcloud.nix
+    ./../nixosModules/wakapi.nix
   ];
 
   boot.loader.grub = {
@@ -41,6 +42,7 @@
   gitea.enable = true;
   syncthing.enable = true;
   nextcloud.enable = false;
+  wakapi.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
