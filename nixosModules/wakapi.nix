@@ -44,7 +44,7 @@
 
     services.postgresql.enable = true;
     services.postgresql.ensureDatabases = [ "wakapi" ];
-    services.postgresql.ensureUsers."wakapi".ensureDBOwnership = true;
+    # services.postgresql.ensureUsers."wakapi".ensureDBOwnership = true;
 
     services.wakapi.enable = true;
     services.wakapi = {
