@@ -36,7 +36,7 @@
       ];
     };
 
-    environment.etc."/var/lib/wakapi/config.yml".text = ./wakapi.yml;
+    # environment.etc."/var/lib/wakapi/config.yml".text = ./wakapi.yml;
 
     systemd.services.wakapi = {
       description = "Wakapi (self-hosted WakaTime-compatible backend)";
