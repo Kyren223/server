@@ -44,8 +44,8 @@
 
     services.wakapi.enable = true;
     services.wakapi = {
-      database.createLocally = false;
-      database.dialect = "sqlite3";
+      database.createLocally = true;
+      database.dialect = "postres";
       database.name = "wakapi_db.db";
       passwordSalt = "dad8uadu8ad8a";
       settings = {
@@ -54,8 +54,6 @@
         public_url = "https://waka.kyren.codes";
         # db.name = "wakapi_db.db";
         # db.dialect = "postgres";
-        db.dialect = "sqlite3";
-        db.max_conn = 1;
       };
     };
   };
