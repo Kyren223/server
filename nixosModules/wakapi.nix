@@ -50,6 +50,7 @@
         env = "production";
         port = 3003;
         public_url = "https://waka.kyren.codes";
+        db.name = "wakapi_db.db";
         db.dialect = "postgres";
         db.user = "wakapi";
         db.password = "1234";
