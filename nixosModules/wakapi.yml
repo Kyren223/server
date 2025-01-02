@@ -32,12 +32,6 @@ app:
   max_inactive_months: 12                                   # maximum months of inactivity before deleting user accounts
   warm_caches: true                                         # whether to run some initial cache warming upon startup
   custom_languages:
-    vue: Vue
-    jsx: JSX
-    tsx: TSX
-    cjs: JavaScript
-    ipynb: Python
-    svelte: Svelte
     astro: Astro
 
   # url template for user avatar images (to be used with services like gravatar or dicebear)
@@ -96,7 +90,7 @@ subscriptions:
   standard_price_id:
 
 mail:
-  enabled: false                         # whether to enable mails (used for password resets, reports, etc.)
+  enabled: false                        # whether to enable mails (used for password resets, reports, etc.)
   provider: smtp                        # method for sending mails, currently one of ['smtp']
   sender: Wakapi <noreply@wakapi.dev>
 

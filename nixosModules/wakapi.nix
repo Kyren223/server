@@ -44,7 +44,7 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
-        cd
+        cd # Important so the cwd is /home/wakapi
         echo "Using config: ${toString ./wakapi.yml}"
         ${pkgs.wakapi}/bin/wakapi -config ${toString ./wakapi.yml}
       '';
@@ -52,6 +52,8 @@
       serviceConfig = {
         User = "wakapi";
         Group = "wakapi";
+
+        # Hardening
         ProtectHostname = true;
         ProtectKernelLogs = true;
         ProtectKernelModules = true;
@@ -66,6 +68,7 @@
         RestrictNamespaces = true;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
+
         Restart = "always";
       };
     };
