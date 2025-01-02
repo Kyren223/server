@@ -40,7 +40,7 @@
       RestrictNamespaces = lib.mkForce false;
       RestrictRealtime = lib.mkForce false;
       RestrictSUIDSGID = lib.mkForce false;
-    }
+    };
 
     services.wakapi.enable = true;
     services.wakapi = {
