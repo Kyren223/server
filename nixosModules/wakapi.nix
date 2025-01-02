@@ -25,6 +25,7 @@
 
     users.groups.wakapi = { };
     users.users.wakapi = {
+      createHome = false;
       isNormalUser = true;
       group = "wakapi";
       openssh.authorizedKeys.keys = [
@@ -37,9 +38,9 @@
     };
 
     systemd.tmpfiles.rules = [
-      # "d /var/lib/wakapi 0700 wakapi wakapi"
-      # "f+ /var/lib/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
-      "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
+      "d /var/lib/wakapi 0700 wakapi wakapi"
+      "f+ /var/lib/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
+      # "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
     ];
 
     systemd.services.wakapi = {
@@ -50,9 +51,6 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
-        pwd
-        ls -lah
-        cd
         pwd
         ls -lah
         ${pkgs.wakapi}/bin/wakapi -config config.yml
@@ -76,6 +74,8 @@
         RestrictNamespaces = true;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
+        StateDirectory = "wakapi";
+        StateDirectoryMode = "0700";
         Restart = "always";
       };
     };
