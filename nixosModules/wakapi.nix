@@ -25,7 +25,6 @@
 
     users.groups.wakapi = { };
     users.users.wakapi = {
-      createHome = false;
       isNormalUser = true;
       group = "wakapi";
       openssh.authorizedKeys.keys = [
@@ -38,10 +37,8 @@
     };
 
     systemd.tmpfiles.rules = [
-      "d /var/lib/wakapi 0700 wakapi wakapi"
-      "C+ /var/lib/wakapi/config.yml 0777 root root - ${toString ./wakapi.yml}"
+      "C+ /home/wakapi/config.yml 0777 root root - ${toString ./wakapi.yml}"
     ];
-      # "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
 
     systemd.services.wakapi = {
       description = "Wakapi (self-hosted WakaTime-compatible backend)";
@@ -51,9 +48,7 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
-        pwd
-        ls -lah
-        cd /var/lib/wakapi
+        cd
         pwd
         ls -lah
         ${pkgs.wakapi}/bin/wakapi -config config.yml
@@ -62,7 +57,6 @@
       serviceConfig = {
         User = "wakapi";
         Group = "wakapi";
-        ProtectHome = true;
         ProtectHostname = true;
         ProtectKernelLogs = true;
         ProtectKernelModules = true;
