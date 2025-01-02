@@ -53,6 +53,9 @@
       script = ''
         pwd
         ls -lah
+        cd /var/lib/wakapi
+        pwd
+        ls -lah
         ${pkgs.wakapi}/bin/wakapi -config config.yml
       '';
 
@@ -74,8 +77,6 @@
         RestrictNamespaces = true;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
-        StateDirectory = "wakapi";
-        StateDirectoryMode = "0700";
         Restart = "always";
       };
     };
