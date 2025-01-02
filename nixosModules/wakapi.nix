@@ -60,6 +60,7 @@
         db.user = "wakapi";
         db.password = "1234";
         db.host = "127.0.0.1";
+        db.port = 5432;
       };
     };
   };
