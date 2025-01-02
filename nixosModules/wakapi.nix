@@ -39,7 +39,7 @@
 
     systemd.tmpfiles.rules = [
       "d /var/lib/wakapi 0700 wakapi wakapi"
-      "f+ /var/lib/wakapi/config.yml 0777 root root ${toString ./wakapi.yml}"
+      "f+ /var/lib/wakapi/config.yml 0777 root root ${builtins.readFile ./wakapi.yml}"
     ];
       # "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
 
