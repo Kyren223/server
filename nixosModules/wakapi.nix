@@ -49,7 +49,6 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
-        cp ${./wakapi.yml} config.yml
         ${pkgs.wakapi}/bin/wakapi -config config.yml
       '';
 
