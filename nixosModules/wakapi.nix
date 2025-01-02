@@ -44,6 +44,7 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
+        cd
         echo "Using config: ${toString ./wakapi.yml}"
         ${pkgs.wakapi}/bin/wakapi -config ${toString ./wakapi.yml}
       '';
