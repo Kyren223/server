@@ -32,7 +32,7 @@
       packages = with pkgs; [
         wakapi
         sqlite
-      ]
+      ];
     };
 
     # systemd.services.wakapi.serviceConfig = {
