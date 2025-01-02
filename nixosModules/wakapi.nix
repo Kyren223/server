@@ -45,10 +45,8 @@
       after = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
 
-      ExecStartPre = ''
-        cp ${./wakapi.yml} config.yml
-      '';
       script = ''
+        cp ${./wakapi.yml} config.yml
         ${pkgs.wakapi}/bin/wakapi -config config.yml
       '';
 
