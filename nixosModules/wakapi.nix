@@ -39,9 +39,9 @@
 
     systemd.tmpfiles.rules = [
       "d /var/lib/wakapi 0700 wakapi wakapi"
-      "f+ /var/lib/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
-      # "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
+      "f+ /var/lib/wakapi/config.yml 0777 root root ${toString ./wakapi.yml}"
     ];
+      # "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
 
     systemd.services.wakapi = {
       description = "Wakapi (self-hosted WakaTime-compatible backend)";
