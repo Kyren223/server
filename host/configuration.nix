@@ -42,7 +42,7 @@
   gitea.enable = true;
   syncthing.enable = true;
   nextcloud.enable = false;
-  wakapi.enable = false;
+  wakapi.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
