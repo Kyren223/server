@@ -25,7 +25,6 @@
 
     users.groups.wakapi = { };
     users.users.wakapi = {
-      createHome = false;
       isNormalUser = true;
       group = "wakapi";
       openssh.authorizedKeys.keys = [
@@ -38,8 +37,9 @@
     };
 
     systemd.tmpfiles.rules = [
-      "d /var/lib/wakapi 0700 wakapi wakapi"
-      "f+ /var/lib/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
+      # "d /var/lib/wakapi 0700 wakapi wakapi"
+      # "f+ /var/lib/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
+      "f+ /home/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
     ];
 
     systemd.services.wakapi = {
