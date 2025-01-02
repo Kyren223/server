@@ -44,7 +44,7 @@
 
     services.wakapi.enable = true;
     services.wakapi = {
-      database.createLocally = true;
+      database.createLocally = false;
       database.dialect = "sqlite3";
       database.name = "wakapi_db.db";
       passwordSalt = "dad8uadu8ad8a";
