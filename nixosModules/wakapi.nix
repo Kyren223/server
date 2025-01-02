@@ -45,15 +45,12 @@
     services.wakapi.enable = true;
     services.wakapi = {
       database.createLocally = true;
-      database.dialect = "postres";
-      database.name = "wakapi_db.db";
       passwordSalt = "dad8uadu8ad8a";
       settings = {
         env = "production";
         port = 3003;
         public_url = "https://waka.kyren.codes";
-        # db.name = "wakapi_db.db";
-        # db.dialect = "postgres";
+        db.dialect = "postgres";
       };
     };
   };
