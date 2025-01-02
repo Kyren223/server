@@ -59,9 +59,8 @@
       '';
 
       serviceConfig = {
-        User = config.users.users.wakapi.name;
-        Group = config.users.users.wakapi.group;
-        DynamicUser = true;
+        User = "wakapi";
+        Group = "wakapi";
         ProtectHome = true;
         ProtectHostname = true;
         ProtectKernelLogs = true;
