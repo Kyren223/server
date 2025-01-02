@@ -39,7 +39,7 @@
 
     systemd.tmpfiles.rules = [
       "d /var/lib/wakapi 0700 wakapi wakapi"
-      "f /var/lib/wakapi/config.yml 0644 wakapi wakapi ${toString ./wakapi.yml}"
+      "f+ /var/lib/wakapi/config.yml 0600 wakapi wakapi ${toString ./wakapi.yml}"
     ];
 
     systemd.services.wakapi = {
@@ -50,6 +50,8 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
+        pwd
+        ls -lah
         ${pkgs.wakapi}/bin/wakapi -config config.yml
       '';
 
