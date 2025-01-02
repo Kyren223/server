@@ -23,9 +23,10 @@
       locations."/".proxyPass = "http://localhost:3003/";
     };
 
+    users.groups.wakapi = { };
     users.users.wakapi = {
-      isNormalUser = true;
-      group = "users";
+      isSystemUser = true;
+      group = "wakapi";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
       ];
@@ -35,47 +36,43 @@
       ];
     };
 
-    # systemd.services.wakapi.serviceConfig = {
-    #   StateDirectoryMode = lib.mkForce "0777";
-    #   DynamicUser = true;
-    #   ProtectHome = lib.mkForce false;
-    #   ProtectHostname = lib.mkForce false;
-    #   ProtectKernelLogs = lib.mkForce false;
-    #   ProtectKernelModules = lib.mkForce false;
-    #   ProtectKernelTunables = lib.mkForce false;
-    #   ProtectProc = "invisible";
-    #   ProtectSystem = "strict";
-    #   RestrictAddressFamilies = [
-    #     "AF_INET"
-    #     "AF_INET6"
-    #     "AF_UNIX"
-    #   ];
-    #   RestrictNamespaces = lib.mkForce false;
-    #   RestrictRealtime = lib.mkForce false;
-    #   RestrictSUIDSGID = lib.mkForce false;
-    # };
-    #
-    # services.postgresql.enable = true;
-    # services.postgresql.ensureDatabases = [ "wakapi" ];
-    # # services.postgresql.ensureUsers."wakapi".ensureDBOwnership = true;
-    #
-    # services.wakapi.enable = true;
-    # services.wakapi = {
-    #   database.createLocally = true;
-    #   database.name = "wakapi_db.db";
-    #   database.user = "wakapi";
-    #   passwordSalt = "dad8uadu8ad8a";
-    #   settings = {
-    #     env = "production";
-    #     port = 3003;
-    #     public_url = "https://waka.kyren.codes";
-    #     db.name = "wakapi_db.db";
-    #     db.dialect = "postgres";
-    #     db.user = "wakapi";
-    #     db.password = "1234";
-    #     db.host = "127.0.0.1";
-    #     db.port = 5432;
-    #   };
-    # };
+    environment.etc."/var/lib/wakapi/config.yml".text = ./wakapi.yml;
+
+    systemd.services.wakapi = {
+      description = "Wakapi (self-hosted WakaTime-compatible backend)";
+
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      script = ''
+        ${pkgs.wakapi}/bin/wakapi -config config.yml
+      '';
+
+      serviceConfig = {
+        User = config.users.users.wakapi.name;
+        Group = config.users.users.wakapi.group;
+        DynamicUser = true;
+        ProtectHome = true;
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        ProtectProc = "invisible";
+        ProtectSystem = "strict";
+        RestrictAddressFamilies = [
+          "AF_INET"
+          "AF_INET6"
+          "AF_UNIX"
+        ];
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        StateDirectory = "wakapi";
+        StateDirectoryMode = "0700";
+        Restart = "always";
+      };
+    };
+
   };
 }
