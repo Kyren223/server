@@ -26,12 +26,12 @@
     systemd.services.wakapi.serviceConfig.StateDirectoryMode = lib.mkForce "0777";
     services.wakapi.enable = true;
     services.wakapi = {
-      database.createLocally = false;
+      database.createLocally = true;
       passwordSalt = "dad8uadu8ad8a";
       settings = {
         env = "production";
         port = 3003;
-        public_url = "http://waka.kyren.codes:3003";
+        public_url = "https://waka.kyren.codes";
         db.name = "wakapi_db.db";
         # db.dialect = "postgres";
         db.dialect = "sqlite3";
