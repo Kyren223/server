@@ -22,8 +22,26 @@
       forceSSL = true;
       locations."/".proxyPass = "http://localhost:3003/";
     };
+    systemd.services.wakapi.serviceConfig = {
+      StateDirectoryMode = lib.mkForce "0777";
+      DynamicUser = true;
+      ProtectHome = lib.mkForce false;
+      ProtectHostname = lib.mkForce false;
+      ProtectKernelLogs = lib.mkForce false;
+      ProtectKernelModules = lib.mkForce false;
+      ProtectKernelTunables = lib.mkForce false;
+      ProtectProc = "invisible";
+      ProtectSystem = "strict";
+      RestrictAddressFamilies = [
+        "AF_INET"
+        "AF_INET6"
+        "AF_UNIX"
+      ];
+      RestrictNamespaces = lib.mkForce false;
+      RestrictRealtime = lib.mkForce false;
+      RestrictSUIDSGID = lib.mkForce false;
+    }
 
-    systemd.services.wakapi.serviceConfig.StateDirectoryMode = lib.mkForce "0777";
     services.wakapi.enable = true;
     services.wakapi = {
       database.createLocally = true;
