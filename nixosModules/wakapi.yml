@@ -64,13 +64,13 @@ db:
   automigrate_fail_silently: false    # whether to ignore schema auto-migration failures when starting up
 
 security:
-  password_salt:                        # change this
+  password_salt: "ada8dauda87dar83rAOKaka9d(@**r*oeA"
   insecure_cookies: true                # should be set to 'false', except when not running with HTTPS (e.g. on localhost)
   cookie_max_age: 172800
   allow_signup: true
   signup_captcha: false
   invite_codes: true                    # whether to enable invite codes for overriding disabled signups
-  disable_frontpage: false
+  disable_frontpage: true
   expose_metrics: false
   enable_proxy: false                   # only intended for production instance at wakapi.dev
   trusted_header_auth: false            # whether to enable trusted header auth for reverse proxies, use with caution!! (https://github.com/muety/wakapi/issues/534)
