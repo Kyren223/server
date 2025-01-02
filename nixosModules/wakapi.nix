@@ -36,10 +36,6 @@
       ];
     };
 
-    systemd.tmpfiles.rules = [
-      "C /home/wakapi/config.yml 0400 wakapi wakapi 0 ${toString ./wakapi.yml}"
-    ];
-
     systemd.services.wakapi = {
       description = "Wakapi (self-hosted WakaTime-compatible backend)";
 
@@ -48,10 +44,8 @@
       wantedBy = [ "multi-user.target" ];
 
       script = ''
-        cd
-        pwd
-        ls -lah
-        ${pkgs.wakapi}/bin/wakapi -config config.yml
+        echo "Using config: ${toString ./wakapi.yml}"
+        ${pkgs.wakapi}/bin/wakapi -config ${toString ./wakapi.yml}
       '';
 
       serviceConfig = {
