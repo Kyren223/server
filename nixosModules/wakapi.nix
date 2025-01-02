@@ -46,7 +46,7 @@
     services.wakapi = {
       database.createLocally = true;
       database.dialect = "sqlite3";
-      database.name = "wakapi_db.db"
+      database.name = "wakapi_db.db";
       passwordSalt = "dad8uadu8ad8a";
       settings = {
         env = "production";
