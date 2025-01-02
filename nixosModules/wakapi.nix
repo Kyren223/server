@@ -51,6 +51,8 @@
         port = 3003;
         public_url = "https://waka.kyren.codes";
         db.dialect = "postgres";
+        db.user = "wakapi";
+        db.password = "1234";
       };
     };
   };
