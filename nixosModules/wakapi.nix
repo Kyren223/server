@@ -42,9 +42,14 @@
       RestrictSUIDSGID = lib.mkForce false;
     };
 
+    services.postgresql.enable = true;
+    services.postgresql.ensureDatabases = [ "wakapi" ];
+
     services.wakapi.enable = true;
     services.wakapi = {
       database.createLocally = true;
+      database.name = "wakapi_db.db";
+      database.user = "wakapi";
       passwordSalt = "dad8uadu8ad8a";
       settings = {
         env = "production";
