@@ -52,6 +52,9 @@
       script = ''
         pwd
         ls -lah
+        cd
+        pwd
+        ls -lah
         ${pkgs.wakapi}/bin/wakapi -config config.yml
       '';
 
