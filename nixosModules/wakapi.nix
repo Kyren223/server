@@ -24,7 +24,6 @@
     };
 
     users.users.wakapi = {
-      createHome = false;
       isNormalUser = true;
       group = "users";
       openssh.authorizedKeys.keys = [
@@ -35,12 +34,6 @@
         sqlite
       ]
     };
-
-    # Make sure the "website" user has access to /srv/website
-    systemd.tmpfiles.rules = [
-      "d /srv/website 0750 website nginx"
-    ];
-
 
     # systemd.services.wakapi.serviceConfig = {
     #   StateDirectoryMode = lib.mkForce "0777";
