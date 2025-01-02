@@ -37,7 +37,7 @@
     };
 
     systemd.tmpfiles.rules = [
-      "C+ /home/wakapi/config.yml 0777 root root 0 ${toString ./wakapi.yml}"
+      "C /home/wakapi/config.yml 0777 root root 0 ${toString ./wakapi.yml}"
     ];
 
     systemd.services.wakapi = {
