@@ -54,7 +54,7 @@
         public_url = "https://waka.kyren.codes";
         # db.name = "wakapi_db.db";
         # db.dialect = "postgres";
-        # db.dialect = "sqlite3";
+        db.dialect = "sqlite3";
         db.max_conn = 1;
       };
     };
