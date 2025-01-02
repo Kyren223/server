@@ -36,10 +36,10 @@
       ];
     };
 
-    systemd.tmpfiles.rules = ''
-      d /var/lib/wakapi 0700 wakapi wakapi
-      f /var/lib/wakapi/config.yml 0644 wakapi wakapi ${toString ./wakapi.yml}
-    '';
+    systemd.tmpfiles.rules = [
+      "d /var/lib/wakapi 0700 wakapi wakapi"
+      "f /var/lib/wakapi/config.yml 0644 wakapi wakapi ${toString ./wakapi.yml}"
+    ];
 
     systemd.services.wakapi = {
       description = "Wakapi (self-hosted WakaTime-compatible backend)";
