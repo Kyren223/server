@@ -11,6 +11,7 @@
     ./../nixosModules/syncthing.nix
     ./../nixosModules/nextcloud.nix
     ./../nixosModules/wakapi.nix
+    ./../nixosModules/eko.nix
   ];
 
   boot.loader.grub = {
@@ -43,6 +44,7 @@
   syncthing.enable = true;
   nextcloud.enable = false;
   wakapi.enable = true;
+  eko.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
