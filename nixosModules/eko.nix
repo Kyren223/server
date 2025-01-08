@@ -18,7 +18,7 @@
 
     # Make sure the "eko" user has access to /srv/eko
     systemd.tmpfiles.rules = [
-      "d /srv/website 0750 eko eko"
+      "d /srv/eko 0750 eko eko"
     ];
 
     # Open port for the server to listen on
