@@ -35,7 +35,7 @@
 
       script = ''
         cd /srv/eko
-        SERVER_CERT_KEY_FILE=${config.sops.secrets.eko-server-cert-key.path} ./eko-server
+        SERVER_CERT_KEY_FILE=${config.sops.secrets.eko-server-cert-key.path} ./eko-server --stdout
       '';
 
       serviceConfig = {
