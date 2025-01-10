@@ -25,6 +25,7 @@
     gitMinimal
     neovim
     openssl
+    sqlite3
   ];
 
   # Enable dynamic linking
