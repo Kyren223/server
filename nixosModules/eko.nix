@@ -49,6 +49,7 @@
         ProtectKernelTunables = true;
         ProtectProc = "invisible";
         ProtectSystem = "strict";
+        ReadWritePaths = [ "/srv/eko" ];
         RestrictAddressFamilies = [
           "AF_INET"
           "AF_INET6"
