@@ -26,6 +26,7 @@
     neovim
     openssl
     sqlite
+    btop
   ];
 
   # Enable dynamic linking
