@@ -19,6 +19,7 @@
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
 
+    services.nginx.enable = true;
     services.nginx.virtualHosts."budget.kyren.codes" = {
       useACMEHost = "kyren.codes";
       forceSSL = true;

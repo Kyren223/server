@@ -16,7 +16,10 @@
       ];
     };
 
-    # Make sure the "eko" user has access to /srv/eko
+    environment.sessionVariables = rec {
+      WALLABAG_DATA = "$HOME/wallabag";
+    };
+
     systemd.tmpfiles.rules = [
       "d /srv/eko 0750 eko eko"
     ];

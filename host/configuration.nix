@@ -12,6 +12,7 @@
     ./../nixosModules/nextcloud.nix
     ./../nixosModules/wakapi.nix
     ./../nixosModules/eko.nix
+    ./../nixosModules/wallabag.nix
   ];
 
   boot.loader.grub = {
@@ -54,6 +55,7 @@
   nextcloud.enable = false;
   wakapi.enable = true;
   eko.enable = true;
+  wallabag.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
