@@ -28,7 +28,6 @@
     sqlite
     btop
     vim
-    vi
   ];
 
   # Enable dynamic linking
