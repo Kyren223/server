@@ -27,6 +27,7 @@
     openssl
     sqlite
     btop
+    vim
   ];
 
   # Enable dynamic linking
