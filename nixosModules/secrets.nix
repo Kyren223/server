@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
 
   options = {
     secrets.enable = lib.mkEnableOption "enables secrets";
