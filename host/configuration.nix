@@ -27,6 +27,7 @@
     openssl
     sqlite
     btop
+    fastfetch
   ];
 
   # Enable dynamic linking
