@@ -12,6 +12,7 @@
     ./../nixosModules/nextcloud.nix
     ./../nixosModules/wakapi.nix
     ./../nixosModules/eko.nix
+    ./../nixosModules/grafana.nix
   ];
 
   boot.loader.grub = {
