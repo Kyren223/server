@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
 
   options = {
     eko.enable = lib.mkEnableOption "enables eko";
