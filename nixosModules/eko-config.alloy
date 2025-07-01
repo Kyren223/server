@@ -8,7 +8,7 @@ local.file_match "eko_logs" {
 loki.source.file "eko_tail" {
   targets       = local.file_match.eko_logs.targets
   forward_to    = [loki.write.eko.receiver]
-  tail_from_end = true
+  tail_from_end = true,
   labels = {
     app = "eko-server"
   }
