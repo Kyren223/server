@@ -108,7 +108,7 @@
         WorkingDirectory = "%S/alloy";
         Type = "simple";
 
-        ExecStart = "${pkgs.grafana-alloy} run /etc/alloy/config.alloy";
+        ExecStart = "${lib.getExe pkgs.grafana-alloy} run /etc/alloy/config.alloy";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
       };
     };
