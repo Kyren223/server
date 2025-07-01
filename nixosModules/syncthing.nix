@@ -9,10 +9,10 @@
   };
 
   config = lib.mkIf config.syncthing.enable {
-    # 443 and 80 for for http and https
+    # 443 for https
     # 22000 TCP and/or UDP for sync traffic
     # 21027/UDP for discovery
-    networking.firewall.allowedTCPPorts = [ 22000 443 80 ];
+    networking.firewall.allowedTCPPorts = [ 22000 443 ];
     networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
     # Make sure acme module is active for the "kyren.codes" ssl cert

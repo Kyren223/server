@@ -14,7 +14,7 @@
   config = lib.mkIf config.nextcloud.enable {
 
     # Open http and https ports to the public
-    networking.firewall.allowedTCPPorts = [ 443 80 ];
+    networking.firewall.allowedTCPPorts = [ 443 ];
 
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
