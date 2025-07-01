@@ -103,6 +103,11 @@
           "systemd-journal"
         ];
 
+        ConfigurationDirectory = "alloy";
+        StateDirectory = "alloy";
+        WorkingDirectory = "%S/alloy";
+        Type = "simple";
+
         ExecStart = "${lib.getExe pkgs.grafana-alloy} run /etc/alloy/config.alloy";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
       };
