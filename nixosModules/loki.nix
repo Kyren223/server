@@ -19,7 +19,7 @@
 
       common = {
         ring = {
-          instance_addr = "::0";
+          instance_addr = "::1";
           kvstore = {
             store = "inmemory";
           };
