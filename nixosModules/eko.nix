@@ -69,7 +69,7 @@
     loki.enable = true;
     services.alloy.enable = true;
     environment.etc = {
-      "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
+      "alloy/config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
 
   };
