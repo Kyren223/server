@@ -5,6 +5,8 @@
   };
 
   config = lib.mkIf config.eko.enable {
+    grafana.enable = true;
+
     users.groups.eko = { };
     users.users.eko = {
       createHome = false;
