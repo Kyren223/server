@@ -95,8 +95,8 @@
         Restart = "always";
         RestartSec = "2s";
 
-        User = "alloy";
-        Group = "alloy";
+        User = "root";
+        Group = "root";
 
         SupplementaryGroups = [
           # allow to read the systemd journal for loki log forwarding
@@ -108,7 +108,7 @@
         WorkingDirectory = "%S/alloy";
         Type = "simple";
 
-        ExecStart = "${lib.getExe pkgs.grafana-alloy} run /etc/alloy/config.alloy";
+        ExecStart = "${pkgs.grafana-alloy} run /etc/alloy/config.alloy";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
       };
     };
