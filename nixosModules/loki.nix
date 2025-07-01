@@ -19,11 +19,13 @@
 
       common = {
         ring = {
-          instance_addr = "::1";
+          instance_addr = "127.0.0.1";
           kvstore = {
-            store = "memberlist";
+            store = "inmemory";
           };
         };
+        instance_interface_names = [ "ens3" ];
+        # added ens3 whichi s the interface in netcup
         replication_factor = 1;
         path_prefix = "/var/lib/loki";
       };
