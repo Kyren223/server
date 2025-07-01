@@ -29,7 +29,7 @@
       enable = true;
       settings = {
         server.http_port = 3030;
-        server.domain = "kyren.codes";
+        server.domain = "grafana.kyren.codes";
         security.csrf_additional_headers = [ "grafana.kyren.codes" "<grafana.kyren.codes>" "kyren.codes" "<kyren.codes>" ];
       };
     };
