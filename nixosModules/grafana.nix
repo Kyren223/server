@@ -28,8 +28,9 @@
 
     services.grafana = {
       enable = true;
-      settings.server = {
-        http_port = 3030;
+      settings = {
+        server.http_port = 3030;
+        security.csrf_additional_headers = [ "grafana.kyren.codes" "<grafana.kyren.codes>" "kyren.codes" "<kyren.codes>" ];
       };
     };
   };
