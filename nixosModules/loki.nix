@@ -23,6 +23,8 @@
           kvstore = {
             store = "inmemory";
           };
+          instance_interface_names = [ "eth0" "en0" "ens3" ];
+          # added ens3 whichi s the interface in netcup
         };
         replication_factor = 1;
         path_prefix = "/var/lib/loki";

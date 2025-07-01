@@ -72,6 +72,5 @@
       "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
 
-
   };
 }
