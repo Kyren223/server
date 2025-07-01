@@ -19,6 +19,7 @@
       useACMEHost = "kyren.codes";
       forceSSL = true;
       locations."/".proxyPass = "http://localhost:3030/";
+      locations."/".extraConfig = "proxy_set_header Host $host;";
     };
 
     sops.secrets.gitea-db-password = {
