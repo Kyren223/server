@@ -5,9 +5,6 @@
   };
 
   config = lib.mkIf config.eko.enable {
-    grafana.enable = true;
-    loki.enable = true;
-
     users.groups.eko = { };
     users.users.eko = {
       createHome = false;
@@ -66,6 +63,15 @@
         RestartSec = "10s";
       };
     };
+
+    # Enable metrics/logging
+    grafana.enable = true;
+    loki.enable = true;
+    services.alloy.enable = true;
+    environment.etc = {
+      "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
+    };
+
 
   };
 }
