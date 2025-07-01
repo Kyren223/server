@@ -18,6 +18,8 @@
       };
 
       common = {
+        interface_names = [ "ens3" ];
+        # added ens3 whichi s the interface in netcup
         ring = {
           instance_addr = "127.0.0.1";
           kvstore = {
