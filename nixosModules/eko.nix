@@ -67,10 +67,10 @@
     # Enable metrics/logging
     grafana.enable = true;
     loki.enable = false;
-    services.alloy.enable = false;
-    services.alloy.configPath = "/etc/alloy/eko-config.alloy";
+    services.alloy.enable = true;
+    services.alloy.configPath = "/etc/alloy/config.alloy";
     environment.etc = {
-      "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
+      "alloy/config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
 
   };
