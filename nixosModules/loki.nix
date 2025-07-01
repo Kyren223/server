@@ -13,6 +13,8 @@
     services.loki.configuration = {
       auth_enabled = false;
 
+      volume_enabled = true;
+
       server = {
         http_listen_port = 3100;
       };
