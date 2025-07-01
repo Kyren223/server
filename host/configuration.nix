@@ -13,6 +13,7 @@
     ./../nixosModules/wakapi.nix
     ./../nixosModules/eko.nix
     ./../nixosModules/grafana.nix
+    ./../nixosModules/loki.nix
   ];
 
   boot.loader.grub = {

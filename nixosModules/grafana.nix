@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.grafana.enable {
     # Open http and https ports to the public
-    networking.firewall.allowedTCPPorts = [ 443 80 ];
+    networking.firewall.allowedTCPPorts = [ 443 ];
 
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
@@ -20,10 +20,6 @@
       forceSSL = true;
       locations."/".proxyPass = "http://localhost:3030/";
       locations."/".extraConfig = "proxy_set_header Host $host;";
-    };
-
-    sops.secrets.gitea-db-password = {
-      owner = config.services.gitea.user;
     };
 
     services.grafana = {

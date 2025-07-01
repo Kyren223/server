@@ -6,6 +6,7 @@
 
   config = lib.mkIf config.eko.enable {
     grafana.enable = true;
+    loki.enable = true;
 
     users.groups.eko = { };
     users.users.eko = {
