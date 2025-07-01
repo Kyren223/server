@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ pkgs, lib, config, ... }: {
 
   options = {
     eko.enable = lib.mkEnableOption "enables eko";
@@ -67,8 +67,47 @@
     # Enable metrics/logging
     grafana.enable = true;
     loki.enable = false;
-    services.alloy.enable = true;
+    services.alloy.enable = false;
     services.alloy.configPath = "/etc/alloy/config.alloy";
+
+    environment.systemPackages = with pkgs; [
+      grafana-alloy
+    ];
+
+    users.groups.alloy = { };
+    users.users.alloy = {
+      createHome = false;
+      isNormalUser = true;
+      group = "alloy";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbntLELS9l2auPVZtCtQ6KYQNka72qDbTdkDtX9rkyJ"
+      ];
+    };
+    systemd.services.alloy = {
+      description = "Alloy";
+
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        Restart = "always";
+        RestartSec = "2s";
+
+        User = "alloy";
+        Group = "alloy";
+
+        SupplementaryGroups = [
+          # allow to read the systemd journal for loki log forwarding
+          "systemd-journal"
+        ];
+
+        ExecStart = "${lib.getExe pkgs.grafana-alloy} run /etc/alloy/config.alloy";
+        ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
+      };
+    };
+
     environment.etc = {
       "alloy/config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
