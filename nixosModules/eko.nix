@@ -68,7 +68,7 @@
     grafana.enable = true;
     loki.enable = true;
     services.alloy.enable = true;
-    services.alloy.extraFlags = [ "/etc/alloy/eko-config.alloy" ];
+    services.alloy.configPath = "/etc/alloy/eko-config.alloy";
     environment.etc = {
       "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
