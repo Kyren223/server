@@ -21,7 +21,7 @@
         ring = {
           instance_addr = "::1";
           kvstore = {
-            store = "inmemory";
+            store = "memberlist";
           };
         };
         replication_factor = 1;
