@@ -66,7 +66,8 @@
 
     # Enable metrics/logging
     grafana.enable = true;
-    loki.enable = false;
+    loki.enable = true;
+
     services.alloy.enable = false;
     services.alloy.configPath = "/etc/alloy/config.alloy";
 

@@ -13,7 +13,7 @@
     services.loki.configuration = {
       auth_enabled = false;
 
-      limits_config = { volume_enabled = true; };
+      # limits_config = { volume_enabled = true; };
 
       server = {
         http_listen_port = 3100;
@@ -29,7 +29,7 @@
         instance_interface_names = [ "ens3" "lo" ];
         # added ens3 whichi s the interface in netcup
         replication_factor = 1;
-        path_prefix = "/var/lib/loki";
+        path_prefix = "/tmp/loki";
       };
 
       schema_config = {
@@ -49,7 +49,7 @@
 
       storage_config = {
         filesystem = {
-          directory = "/var/lib/loki/chunks";
+          directory = "/tmp/loki/chunks";
         };
       };
 
