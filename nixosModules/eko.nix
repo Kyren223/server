@@ -28,12 +28,16 @@
       after = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
 
+      environment = {
+        EKO_SERVER_CERT_FILE = config.sops.secrets.eko-server-cert-key.path;
+        EKO_SERVER_LOG_DIR = "/var/log/eko";
+      };
+
       serviceConfig = {
         Restart = "on-failure";
         RestartSec = "10s";
 
-        Environment = "SERVER_CERT_KEY_FILE=${config.sops.secrets.eko-server-cert-key.path}";
-        ExecStart = "%S/eko/eko-server --logs /var/log/eko";
+        ExecStart = "%S/eko/eko-server";
 
         ConfigurationDirectory = "eko";
         StateDirectory = "eko";
