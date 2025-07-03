@@ -29,7 +29,7 @@
         instance_interface_names = [ "ens3" "lo" ];
         # added ens3 whichi s the interface in netcup
         replication_factor = 1;
-        path_prefix = "/tmp/loki";
+        path_prefix = "/var/lib/loki";
       };
 
       schema_config = {
@@ -49,7 +49,7 @@
 
       storage_config = {
         filesystem = {
-          directory = "/tmp/loki/chunks";
+          directory = "/var/lib/loki/chunks";
         };
       };
 
