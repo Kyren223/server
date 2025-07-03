@@ -1,6 +1,6 @@
 local.file_match "eko_logs" {
   path_targets = [
-    { __path__ = "/srv/eko/logs/eko-server-*.log" },
+    { __path__ = "/var/log/eko/*.log" },
   ]
   sync_period = "3s"
 }
