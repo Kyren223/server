@@ -76,6 +76,15 @@
       grafana-alloy
     ];
 
+    users.groups.alloy = { };
+    users.users.alloy = {
+      createHome = false;
+      isNormalUser = true;
+      group = "alloy";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
+      ];
+    };
     systemd.services.alloy = {
       description = "Alloy";
 
@@ -91,8 +100,8 @@
         Restart = "always";
         RestartSec = "2s";
 
-        User = "root"; # TODO: make these not root?
-        Group = "root";
+        User = "alloy"; # TODO: make these not root?
+        Group = "alloy";
 
         SupplementaryGroups = [
           # allow to read the systemd journal for loki log forwarding
