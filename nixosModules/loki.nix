@@ -13,8 +13,6 @@
     services.loki.configuration = {
       auth_enabled = false;
 
-      # limits_config = { volume_enabled = true; };
-
       server = {
         http_listen_port = 3100;
       };
@@ -27,7 +25,7 @@
           };
         };
         instance_interface_names = [ "ens3" "lo" ];
-        # added ens3 whichi s the interface in netcup
+        # added ens3 and lo (loopback) which are the network interfaces on netcup
         replication_factor = 1;
         path_prefix = "/var/lib/loki";
       };
@@ -52,7 +50,7 @@
           directory = "/var/lib/loki/chunks";
         };
       };
-
     };
+
   };
 }

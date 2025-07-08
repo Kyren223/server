@@ -21,12 +21,22 @@
 
     sops.secrets.eko-server-cert-key = { owner = "eko"; };
 
+    environment.etc = {
+      "eko/tos.md".text = builtins.readFile ./eko-tos.md;
+      "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
+    };
+
     systemd.services.eko = {
       description = "Eko - a secure terminal-based social media";
 
       wants = [ "network-online.target" ];
       after = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
+
+      # restartTriggers = [ "/var/lib/eko/eko-server" ];
+      reloadTriggers = lib.mapAttrsToList (_: v: v.source or null) (
+        lib.filterAttrs (n: _: lib.hasPrefix "eko/" n) config.environment.etc
+      );
 
       environment = {
         EKO_SERVER_CERT_FILE = config.sops.secrets.eko-server-cert-key.path;
@@ -38,6 +48,7 @@
         RestartSec = "10s";
 
         ExecStart = "%S/eko/eko-server";
+        ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
 
         ConfigurationDirectory = "eko";
         StateDirectory = "eko";
@@ -68,9 +79,6 @@
     # Enable metrics/logging
     grafana.enable = true;
     loki.enable = true;
-
-    services.alloy.enable = false;
-    services.alloy.configPath = "/etc/alloy/config.alloy";
 
     environment.systemPackages = with pkgs; [
       grafana-alloy
