@@ -17,15 +17,14 @@
     };
 
     # Open port 7223 for eko protocol, 443 for website
-    # networking.firewall.allowedTCPPorts = [ 7223 443 ];
-    networking.firewall.allowedTCPPorts = [ 7223 ];
+    networking.firewall.allowedTCPPorts = [ 7223 443 ];
 
     sops.secrets.eko-server-cert-key = { owner = "eko"; };
 
-    # environment.etc = {
-    #   "eko/tos.md".text = builtins.readFile ./eko-tos.md;
-    #   "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
-    # };
+    environment.etc = {
+      "eko/tos.md".text = builtins.readFile ./eko-tos.md;
+      "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
+    };
 
     systemd.services.eko = {
       description = "Eko - a secure terminal-based social media";
@@ -122,16 +121,16 @@
       "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
 
-    # # Make sure acme module is active for the "kyren.codes" ssl cert
-    # acme.enable = true;
-    #
-    # # Website
-    # services.nginx.enable = true;
-    # services.nginx.virtualHosts."eko.kyren.codes" = {
-    #   useACMEHost = "kyren.codes";
-    #   forceSSL = true;
-    #   locations."/".proxyPass = "http://localhost:7443/";
-    # };
+    # Make sure acme module is active for the "kyren.codes" ssl cert
+    acme.enable = true;
+
+    # Website
+    services.nginx.enable = true;
+    services.nginx.virtualHosts."eko.kyren.codes" = {
+      useACMEHost = "kyren.codes";
+      forceSSL = true;
+      locations."/".proxyPass = "http://localhost:7443/";
+    };
 
   };
 }
