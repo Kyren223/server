@@ -41,6 +41,8 @@
       environment = {
         EKO_SERVER_CERT_FILE = config.sops.secrets.eko-server-cert-key.path;
         EKO_SERVER_LOG_DIR = "/var/log/eko";
+        EKO_SERVER_TOS_FILE = "/etc/eko/tos.md";
+        EKO_SERVER_PRIVACY_FILE = "/etc/eko/privacy.md";
       };
 
       serviceConfig = {
