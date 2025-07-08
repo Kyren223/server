@@ -121,16 +121,16 @@
       "alloy/eko-config.alloy".text = builtins.readFile ./eko-config.alloy;
     };
 
-    # Make sure acme module is active for the "kyren.codes" ssl cert
-    acme.enable = true;
-
-    # Website
-    services.nginx.enable = true;
-    services.nginx.virtualHosts."eko.kyren.codes" = {
-      useACMEHost = "kyren.codes";
-      forceSSL = true;
-      locations."/".proxyPass = "http://localhost:7443/";
-    };
+    # # Make sure acme module is active for the "kyren.codes" ssl cert
+    # acme.enable = true;
+    #
+    # # Website
+    # services.nginx.enable = true;
+    # services.nginx.virtualHosts."eko.kyren.codes" = {
+    #   useACMEHost = "kyren.codes";
+    #   forceSSL = true;
+    #   locations."/".proxyPass = "http://localhost:7443/";
+    # };
 
   };
 }
