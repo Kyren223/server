@@ -21,10 +21,10 @@
 
     sops.secrets.eko-server-cert-key = { owner = "eko"; };
 
-    environment.etc = {
-      "eko/tos.md".text = builtins.readFile ./eko-tos.md;
-      "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
-    };
+    # environment.etc = {
+    #   "eko/tos.md".text = builtins.readFile ./eko-tos.md;
+    #   "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
+    # };
 
     systemd.services.eko = {
       description = "Eko - a secure terminal-based social media";
