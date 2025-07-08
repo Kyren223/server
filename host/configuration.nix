@@ -56,7 +56,7 @@
   syncthing.enable = true;
   nextcloud.enable = false;
   wakapi.enable = true;
-  eko.enable = true;
+  eko.enable = false;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
