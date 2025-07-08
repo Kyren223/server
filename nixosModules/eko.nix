@@ -17,7 +17,8 @@
     };
 
     # Open port 7223 for eko protocol, 443 for website
-    networking.firewall.allowedTCPPorts = [ 7223 443 ];
+    # networking.firewall.allowedTCPPorts = [ 7223 443 ];
+    networking.firewall.allowedTCPPorts = [ 7223 ];
 
     sops.secrets.eko-server-cert-key = { owner = "eko"; };
 
