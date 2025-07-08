@@ -1,8 +1,10 @@
 # Privacy Policy
 
-**Last Updated:** July 7, 2025
+**Last Updated:** July 8, 2025
 
-This Privacy Policy explains how we handle data when you use our anonymous communication platform. The service operates without requiring user‑submitted personal identifiers such as names or email addresses. However, we do process certain technical data (e.g. IP addresses) which may be considered personal data under some laws.
+This Privacy Policy (available at https://eko.kyren.codes/privacy-policy) explains how we handle data when you use our anonymous communication platform. The service operates without requiring user‑submitted personal identifiers such as real names or email addresses. However, we do process certain technical data (e.g. IP addresses) which may be considered personal data under some laws.
+
+This policy applies only to the official instance of Eko operated at `eko.kyren.codes`, and is presented to users via the Eko client on first use and whenever updated. It forms part of the Terms of Service.
 
 ## 1. What We Collect
 
