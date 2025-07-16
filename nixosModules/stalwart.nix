@@ -11,7 +11,7 @@
   config = lib.mkIf config.stalwart.enable {
 
     # Open http and https ports to the public
-    networking.firewall.allowedTCPPorts = [ 443 ];
+    networking.firewall.allowedTCPPorts = [ 443 80 ];
 
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
@@ -23,8 +23,32 @@
       "stalwart/acme-secret".text = "secret123";
     };
 
+    services.nginx.virtualHosts."webadmin.kyren.codes" = {
+      # useACMEHost = "kyren.codes";
+      enableACME = true;
+      forceSSL = true;
+
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8080";
+        proxyWebsockets = false; # enable true if websockets needed
+        # any additional nginx proxy headers can be added below
+        extraConfig = ''
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        '';
+      };
+
+      serverAliases = [
+        "mta-sts.kyren.codes"
+        "autoconfig.kyren.codes"
+        "autodiscover.kyren.codes"
+        "mail.kyren.codes"
+      ];
+    };
+
     services.caddy = {
-      enable = true;
+      enable = false;
       virtualHosts = {
         "webadmin.kyren.codes" = {
           extraConfig = ''
