@@ -17,6 +17,8 @@
     ./../nixosModules/stalwart.nix
   ];
 
+  networking.hostName = "kyren-server";
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
