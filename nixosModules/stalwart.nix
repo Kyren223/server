@@ -29,7 +29,7 @@
       forceSSL = true;
 
       locations."/" = {
-        proxyPass = "http://127.0.0.1:8080";
+        proxyPass = "http://127.0.0.1:8081";
         proxyWebsockets = false; # enable true if websockets needed
         # any additional nginx proxy headers can be added below
         extraConfig = ''
@@ -52,7 +52,7 @@
       virtualHosts = {
         "webadmin.kyren.codes" = {
           extraConfig = ''
-            reverse_proxy http://127.0.0.1:8080
+            reverse_proxy http://127.0.0.1:8081
           '';
           serverAliases = [
             "mta-sts.kyren.codes"
@@ -73,12 +73,12 @@
           hostname = "mx1.kyren.codes";
           tls = {
             enable = true;
-            implicit = true;
+            implicit = false;
           };
           listener = {
             smtp = {
               protocol = "smtp";
-              bind = "[::]:25";
+              bind = "0.0.0.0:25,[::]:25";
             };
             submissions = {
               bind = "[::]:465";
@@ -89,12 +89,12 @@
               protocol = "imap";
             };
             jmap = {
-              bind = "[::]:8080";
+              bind = "[::]:8081";
               url = "https://mail.kyren.codes";
               protocol = "jmap";
             };
             management = {
-              bind = [ "127.0.0.1:8080" ];
+              bind = [ "127.0.0.1:8081" ];
               protocol = "http";
             };
           };
