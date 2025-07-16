@@ -14,6 +14,7 @@
     ./../nixosModules/eko.nix
     ./../nixosModules/grafana.nix
     ./../nixosModules/loki.nix
+    ./../nixosModules/stalwart.nix
   ];
 
   boot.loader.grub = {
@@ -57,6 +58,7 @@
   nextcloud.enable = false;
   wakapi.enable = true;
   eko.enable = true;
+  stalwart.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
