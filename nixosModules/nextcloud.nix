@@ -50,12 +50,12 @@
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
         inherit calendar contacts mail notes tasks;
 
-        # Custom app installation example.
-        cookbook = pkgs.fetchNextcloudApp rec {
-          url =
-            "https://github.com/nextcloud/cookbook/releases/download/v0.10.2/Cookbook-0.10.2.tar.gz";
-          sha256 = "sha256-XgBwUr26qW6wvqhrnhhhhcN4wkI+eXDHnNSm1HDbP6M=";
-        };
+        # # Custom app installation example.
+        # cookbook = pkgs.fetchNextcloudApp rec {
+        #   url =
+        #     "https://github.com/nextcloud/cookbook/releases/download/v0.10.2/Cookbook-0.10.2.tar.gz";
+        #   sha256 = "sha256-XgBwUr26qW6wvqhrnhhhhcN4wkI+eXDHnNSm1HDbP6M=";
+        # };
       };
 
       settings = {
