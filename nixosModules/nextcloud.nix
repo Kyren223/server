@@ -58,9 +58,12 @@
         # };
       };
 
+      settings = {
+        overwrite_protocol = "https";
+        default_phone_region = "PT";
+      };
+
       config = {
-        overwriteProtocol = "https";
-        defaultPhoneRegion = "PT";
         dbtype = "pgsql";
         adminuser = "admin";
         adminpassFile = config.sops.secrets.nextcloud-admin-password.path;
