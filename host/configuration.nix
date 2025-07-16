@@ -40,6 +40,7 @@
     sqlite
     btop
     fastfetch
+    inetutils
   ];
 
   # Enable dynamic linking
