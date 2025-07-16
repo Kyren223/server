@@ -41,7 +41,7 @@
 
       maxUploadSize = "16G";
       https = true;
-      enableBrokenCiphersForSSE = false;
+      # enableBrokenCiphersForSSE = false;
 
       autoUpdateApps.enable = true;
       extraAppsEnable = true;
