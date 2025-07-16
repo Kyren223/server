@@ -19,6 +19,13 @@
 
   networking.hostName = "kyren-server";
 
+  networking.interfaces.ens3.ipv6.addresses = [
+    {
+      address = "2a03:4000:15:c6::1";
+      prefixLength = 64;
+    }
+  ];
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
