@@ -26,6 +26,11 @@
     }
   ];
 
+  networking.defaultGateway6 = {
+    address = "fe80::1";
+    interface = "ens3";
+  };
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
