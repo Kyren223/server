@@ -24,8 +24,8 @@
     };
 
     services.nginx.virtualHosts."webadmin.kyren.codes" = {
-      # useACMEHost = "kyren.codes";
-      enableACME = true;
+      useACMEHost = "kyren.codes";
+      # enableACME = true;
       forceSSL = true;
 
       locations."/" = {
