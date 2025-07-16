@@ -48,7 +48,7 @@
       extraApps = with config.services.nextcloud.package.packages.apps; {
         # List of apps we want to install and are already packaged in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-        inherit calendar contacts mail notes tasks;
+        inherit calendar mail notes tasks;
 
         # # Custom app installation example.
         # cookbook = pkgs.fetchNextcloudApp rec {
