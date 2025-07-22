@@ -21,62 +21,65 @@
 
     sops.secrets.eko-server-cert-key = { owner = "eko"; };
 
+    services.eko.enable = true;
+    services.eko.certFile = config.sops.secrets.eko-server-cert-key.path;
+
     environment.etc = {
       "eko/tos.md".text = builtins.readFile ./eko-tos.md;
       "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
     };
 
-    systemd.services.eko = {
-      description = "Eko - a secure terminal-based social media";
-
-      wants = [ "network-online.target" ];
-      after = [ "network-online.target" ];
-      wantedBy = [ "multi-user.target" ];
-
-      # restartTriggers = [ "/var/lib/eko/eko-server" ];
-      reloadTriggers = lib.mapAttrsToList (_: v: v.source or null) (
-        lib.filterAttrs (n: _: lib.hasPrefix "eko/" n) config.environment.etc
-      );
-
-      environment = {
-        EKO_SERVER_CERT_FILE = config.sops.secrets.eko-server-cert-key.path;
-        EKO_SERVER_LOG_DIR = "/var/log/eko";
-        EKO_SERVER_TOS_FILE = "/etc/eko/tos.md";
-        EKO_SERVER_PRIVACY_FILE = "/etc/eko/privacy.md";
-      };
-
-      serviceConfig = {
-        Restart = "on-failure";
-        RestartSec = "10s";
-
-        ExecStart = "%S/eko/eko-server";
-        ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
-
-        ConfigurationDirectory = "eko";
-        StateDirectory = "eko";
-        LogsDirectory = "eko";
-        WorkingDirectory = "%S/eko";
-        Type = "simple";
-
-        User = "eko";
-        Group = "eko";
-
-        # Hardening
-        ProtectHostname = true;
-        ProtectKernelLogs = true;
-        ProtectKernelModules = true;
-        ProtectKernelTunables = true;
-        ProtectProc = "invisible";
-        RestrictAddressFamilies = [
-          "AF_INET"
-          "AF_INET6"
-          "AF_UNIX"
-        ];
-        RestrictNamespaces = true;
-        RestrictRealtime = true;
-        RestrictSUIDSGID = true;
-      };
-    };
+    # systemd.services.eko = {
+    #   description = "Eko - a secure terminal-based social media";
+    #
+    #   wants = [ "network-online.target" ];
+    #   after = [ "network-online.target" ];
+    #   wantedBy = [ "multi-user.target" ];
+    #
+    #   # restartTriggers = [ "/var/lib/eko/eko-server" ];
+    #   reloadTriggers = lib.mapAttrsToList (_: v: v.source or null) (
+    #     lib.filterAttrs (n: _: lib.hasPrefix "eko/" n) config.environment.etc
+    #   );
+    #
+    #   environment = {
+    #     EKO_SERVER_CERT_FILE = config.sops.secrets.eko-server-cert-key.path;
+    #     EKO_SERVER_LOG_DIR = "/var/log/eko";
+    #     EKO_SERVER_TOS_FILE = "/etc/eko/tos.md";
+    #     EKO_SERVER_PRIVACY_FILE = "/etc/eko/privacy.md";
+    #   };
+    #
+    #   serviceConfig = {
+    #     Restart = "on-failure";
+    #     RestartSec = "10s";
+    #
+    #     ExecStart = "%S/eko/eko-server";
+    #     ExecReload = "${pkgs.coreutils}/bin/kill -SIGHUP $MAINPID";
+    #
+    #     ConfigurationDirectory = "eko";
+    #     StateDirectory = "eko";
+    #     LogsDirectory = "eko";
+    #     WorkingDirectory = "%S/eko";
+    #     Type = "simple";
+    #
+    #     User = "eko";
+    #     Group = "eko";
+    #
+    #     # Hardening
+    #     ProtectHostname = true;
+    #     ProtectKernelLogs = true;
+    #     ProtectKernelModules = true;
+    #     ProtectKernelTunables = true;
+    #     ProtectProc = "invisible";
+    #     RestrictAddressFamilies = [
+    #       "AF_INET"
+    #       "AF_INET6"
+    #       "AF_UNIX"
+    #     ];
+    #     RestrictNamespaces = true;
+    #     RestrictRealtime = true;
+    #     RestrictSUIDSGID = true;
+    #   };
+    # };
 
     # Enable metrics/logging
     grafana.enable = true;
