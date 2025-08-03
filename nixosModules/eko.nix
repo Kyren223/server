@@ -27,13 +27,8 @@
 
     # Allow grafana access to the sqlite db
     users.users.grafana.extraGroups = [ "eko" ];
-    systemd.services.grafana = {
-      serviceConfig = {
-        ProtectHome = lib.mkForce true;
-        ProtectSystem = lib.mkForce true;
-        PrivateTmp = lib.mkForce true;
-        ReadWritePaths = [ config.services.eko.dataDir ];
-      };
+    systemd.services.grafana.serviceConfig  = {
+      ReadWritePaths = [ config.services.eko.dataDir ];
     };
 
     # Make sure acme module is active for the "kyren.codes" ssl cert
