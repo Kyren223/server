@@ -29,9 +29,9 @@
     users.users.grafana.extraGroups = [ "eko" ];
     systemd.services.grafana = {
       serviceConfig = {
-        ProtectHome = lib.mkForce false;
-        ProtectSystem = lib.mkForce false;
-        PrivateTmp = lib.mkForce false;
+        ProtectHome = lib.mkForce true;
+        ProtectSystem = lib.mkForce true;
+        PrivateTmp = lib.mkForce true;
         ReadWritePaths = [ config.services.eko.dataDir ];
       };
     };
