@@ -32,21 +32,21 @@
     #   "z '${cfg.dataDir}' ${cfg.permission} ${cfg.user} ${cfg.group} - -"
     # ];
     # Works
-    users.users.eko.homeMode = "0750";
-    systemd.tmpfiles.rules = [
-      "d /var/lib/eko 0750 eko eko"
-    ];
-    systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce "0750";
-    systemd.services.eko.serviceConfig.StateDirectory = "eko";
-    systemd.services.eko.serviceConfig.ReadWritePaths = [
-      "/var/lib/eko"
-    ];
+    # users.users.eko.homeMode = "0750";
+    # systemd.tmpfiles.rules = [
+    #   "d /var/lib/eko 0750 eko eko"
+    # ];
+    # systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce "0750";
+    # systemd.services.eko.serviceConfig.StateDirectory = "eko";
+    # systemd.services.eko.serviceConfig.ReadWritePaths = [
+    #   "/var/lib/eko"
+    # ];
     systemd.services.grafana = {
       serviceConfig = {
         ProtectHome = lib.mkForce false;
         ProtectSystem = lib.mkForce false;
         PrivateTmp = lib.mkForce false;
-        ReadWritePaths = [ "/var/lib/eko" ];
+        ReadWritePaths = [ config.services.eko.dataDir ];
       };
     };
 
