@@ -26,7 +26,7 @@
     ];
 
     # Allow grafana access to the sqlite db
-    users.users.eko.extraGroups = [ "grafana" ];
+    users.users.grafana.extraGroups = [ "eko" ];
     systemd.services.grafana = {
       serviceConfig = {
         ProtectHome = lib.mkForce false;
