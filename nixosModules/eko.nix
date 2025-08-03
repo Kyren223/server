@@ -34,7 +34,7 @@
         ProtectHome = lib.mkForce false;
         ProtectSystem = lib.mkForce false;
         PrivateTmp = lib.mkForce false;
-        # ReadWritePaths = [ "/var/lib/eko" ];
+        ReadWritePaths = [ "/var/lib/eko" ];
       };
     };
 
