@@ -27,7 +27,14 @@
 
     # Allow grafana access to the sqlite db
     # users.users.eko.extraGroups = [ "grafana" ];
-    systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce 0750;
+    # systemd.tmpfiles.rules = [
+    #   "d '${cfg.dataDir}' ${cfg.permission} ${cfg.user} ${cfg.group} - -"
+    #   "z '${cfg.dataDir}' ${cfg.permission} ${cfg.user} ${cfg.group} - -"
+    # ];
+    systemd.tmpfiles.rules = [
+      "d /var/lib/eko 0750 eko eko"
+    ];
+    systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce "0750";
     systemd.services.eko.serviceConfig.StateDirectory = "eko";
     systemd.services.eko.serviceConfig.ReadWritePaths = [
       "/var/lib/eko"
