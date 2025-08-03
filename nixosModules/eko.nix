@@ -26,8 +26,8 @@
     ];
 
     # Allow grafana access to the sqlite db
-    users.users.eko.group = "grafana";
-    systemd.services.eko.serviceConfig.StateDirectoryMode = "0750";
+    users.users.eko.group = lib.mkForce "grafana";
+    systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce "0750";
 
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
