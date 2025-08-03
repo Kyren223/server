@@ -28,11 +28,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1754245013,
-        "narHash": "sha256-k7Hyq08bIbp+LGwtpiPC/wA8PWu0y26Qe8I8PXshy98=",
+        "lastModified": 1754247597,
+        "narHash": "sha256-sQZbfQA3hZU1dgB80CyeHOmhdsMKHiN5dl36BaoL160=",
         "owner": "kyren223",
         "repo": "eko",
-        "rev": "2d708ee0acc6d4abaf49a7841b6f2fee34df60ca",
+        "rev": "1490932987f52d3f412a992f307967ea62b6233a",
         "type": "github"
       },
       "original": {
