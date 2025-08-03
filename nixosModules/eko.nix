@@ -1,5 +1,9 @@
 { lib, config, ... }: {
 
+  imports = [
+    ./grafana-alloy.nix
+  ];
+
   options = {
     eko.enable = lib.mkEnableOption "enables eko";
   };
