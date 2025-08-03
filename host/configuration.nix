@@ -46,6 +46,7 @@
     btop
     fastfetch
     inetutils
+    inotify-tools
   ];
 
   # Enable dynamic linking
