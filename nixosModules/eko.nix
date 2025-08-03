@@ -31,6 +31,7 @@
     #   "d '${cfg.dataDir}' ${cfg.permission} ${cfg.user} ${cfg.group} - -"
     #   "z '${cfg.dataDir}' ${cfg.permission} ${cfg.user} ${cfg.group} - -"
     # ];
+    # Works
     users.users.eko.homeMode = "0750";
     systemd.tmpfiles.rules = [
       "d /var/lib/eko 0750 eko eko"
