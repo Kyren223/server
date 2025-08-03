@@ -25,6 +25,10 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren"
     ];
 
+    # Allow grafana access to the sqlite db
+    users.users.eko.group = "grafana";
+    systemd.services.eko.serviceConfig.StateDirectoryMode = "0750";
+
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
 
