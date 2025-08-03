@@ -27,6 +27,7 @@
 
     # Allow grafana access to the sqlite db
     users.users.eko.group = lib.mkForce "grafana";
+    systemd.tmpfiles.rules = [ "d /var/lib/eko 0750 eko grafana -" ];
     systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce "0750";
     systemd.services.grafana = {
       serviceConfig = {
