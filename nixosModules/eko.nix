@@ -26,8 +26,7 @@
     ];
 
     # Allow grafana access to the sqlite db
-    systemd.tmpfiles.rules = [ "d /var/lib/eko 0755 eko eko" ];
-    systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce "0755";
+    systemd.services.eko.serviceConfig.StateDirectoryMode = lib.mkForce 0755;
     systemd.services.grafana = {
       serviceConfig = {
         ProtectHome = lib.mkForce false;
