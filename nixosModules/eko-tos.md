@@ -24,6 +24,8 @@ You are solely responsible for your actions, behavior, and any content you submi
 
 You must not use the service to engage in illegal, harmful, abusive, or otherwise prohibited behavior.
 
+You agree not to post or share any special categories of personal data (as defined in Article 9 GDPR).
+
 We reserve the right to suspend, restrict, or terminate your access to the service **at any time, for any reason or no reason**, with or without notice, and without obligation to disclose the reason.
 
 Suspension or termination of your access will not entitle you to any refund or compensation.
