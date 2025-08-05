@@ -8,7 +8,7 @@ By accessing or using this service, you agree to be bound by these Terms. If you
 
 ## 2. Service Description & Eligibility
 
-This is the **official public instance** of Eko, an open-source, donation-supported communication platform, operated at `eko.kyren.codes`. The source code is available on [Github](https://github.com/kyren223/eko). These Terms of Service apply specifically to this instance and are also available online at https://eko.kyren.codes/terms-of-service.
+This is the **official public instance** of Eko, an open-source, donation-supported communication platform, operated at `eko.kyren.codes`. The source code is available at https://github.com/kyren223/eko. These Terms of Service apply specifically to this instance and are also available online at https://eko.kyren.codes/terms-of-service.
 
 It is provided free of charge and operated in good faith by the project maintainers for community use.
 
