@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Last Updated:** July 8, 2025
+**Last Updated:** August 5, 2025
 
 ## 1. Acceptance of Terms
 
@@ -18,11 +18,15 @@ By accessing our services, you confirm that you’re **at least 13 years old** a
 
 ## 3. User Conduct & Termination
 
+You agree to comply with all applicable laws when using the service.
+
 You are solely responsible for your actions, behavior, and any content you submit. We may monitor or moderate content at our discretion, but are not obligated to do so. We do not endorse or verify user content, and you agree not to hold us liable for anything you or others post, transmit, or share.
 
 You must not use the service to engage in illegal, harmful, abusive, or otherwise prohibited behavior.
 
 We reserve the right to suspend, restrict, or terminate your access to the service **at any time, for any reason or no reason**, with or without notice, and without obligation to disclose the reason.
+
+Suspension or termination of your access will not entitle you to any refund or compensation.
 
 ## 4. Privacy & Data Collection
 
@@ -36,6 +40,7 @@ THE SERVICE IS PROVIDED **"AS IS"** AND **"AS AVAILABLE"**, WITHOUT WARRANTY OF 
 TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
 WE DO NOT GUARANTEE THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR‑FREE, OR THAT IT WILL MEET YOUR EXPECTATIONS.
 
+We make no guarantees regarding data loss, security, or privacy.
 You assume full responsibility for any consequences resulting from your use of the service.
 
 ## 6. Limitation of Liability
@@ -67,4 +72,12 @@ Nothing in these Terms limits rights granted by applicable law that cannot be wa
 
 This service is the official public instance of Eko, operated by Kyren223 at `eko.kyren.codes`. Other independently operated instances may exist but are not affiliated with, endorsed by, or responsible to us.
 
-These Terms apply exclusively to the official public instance. Reuse of these Terms by other instances is discouraged, as doing so may result in inaccurate representations or legal confusion.
+These Terms apply exclusively to the official public instance. Reuse of these Terms by other instances is discouraged, as doing so may result in inaccurate representations or legal confusion. You should create your own terms.
+
+## 12. Severability
+
+If any provision of these Terms is found to be unenforceable or invalid under applicable law, that provision shall be limited or eliminated to the minimum extent necessary, so these Terms shall otherwise remain in full force and effect.
+
+## 13. No Waiver
+
+Failure to enforce any right or provision under these Terms shall not constitute a waiver of such right or provision.

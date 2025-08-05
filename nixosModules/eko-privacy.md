@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last Updated:** July 8, 2025
+**Last Updated:** August 5, 2025
 
 This Privacy Policy (available at https://eko.kyren.codes/privacy-policy) explains how we handle data when you use our anonymous communication platform. The service operates without requiring user‑submitted personal identifiers such as real names or email addresses. However, we do process certain technical data (e.g. IP addresses) which may be considered personal data under some laws.
 
@@ -10,9 +10,9 @@ This policy applies only to the official instance of Eko operated at `eko.kyren.
 
 When using the service, we collect the following:
 
-- **IP address and port** – for connection tracking and abuse prevention
+- **IP address and port** – for security, connection tracking and abuse prevention
 - **User ID** – a stable 64-bit identifier generated on first login
-- **Request data** – including message contents and other client requests
+- **Request data** – including messages and other client requests submitted by users
 - **Usage metrics** – such as API usage frequency and session durations
 - **System analytics** (optional) – OS, architecture, RAM, and terminal-related environment variables
 
@@ -30,11 +30,13 @@ We collect this data in order to:
 - Analyze aggregate usage patterns
 - Understand user environments to improve compatibility and experience
 
+Our legal basis for processing this data is **legitimate interests** related to service security, operation, and improvement.
+
 We do **not sell your data to advertisers or third parties**.
 
 ## 3. Log Retention
 
-We store logs of requests and connection events, which may include IP addresses, User IDs, and full request content (such as messages or device analytics).
+We store logs of requests and connection events, which may include IP addresses, User IDs, and full request content (such as messages or device analytics), for the purposes of security, abuse prevention and debugging.
 
 ### How Logging Works
 
@@ -48,7 +50,7 @@ We store logs of requests and connection events, which may include IP addresses,
 
 You may delete your account at any time. When this happens:
 
-- Your account is flagged as deleted
+- Your account is flagged as deleted, with the internal user ID retained for technical reasons.
 - All servers ("networks") **you own** are deleted, along with all messages in those servers ("networks")
 
 Messages you’ve sent to other servers ("networks") or users ("signals") **are not deleted automatically**, but you may delete them individually if you still have access to them.
@@ -65,6 +67,8 @@ Under GDPR and similar laws, you can:
 
 To exercise any right, email **eko-app@protonmail.com** with your User ID.
 We’ll make reasonable efforts to respond to verifiable data‑subject requests within 30 days.
+
+Identity verification will be required before processing any requests to access, correct, or erase personal data.
 
 ## 6. Changes to This Policy
 
