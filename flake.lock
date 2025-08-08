@@ -28,15 +28,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1754260247,
-        "narHash": "sha256-bC7qnAtFVTi0uvzXGEDtHmM6Zd/rW6uhuFhZq0T0FFQ=",
+        "lastModified": 1754669199,
+        "narHash": "sha256-zOXzEqJC6F9u6CJYnfzACysuFDYbdZDP+NmpwKlw20o=",
         "owner": "kyren223",
         "repo": "eko",
-        "rev": "22fe5231e2503dc6ccdbbf01d4ee58702380f7a4",
+        "rev": "6642833590faf50acab62e1fe98b14b40c760bc5",
         "type": "github"
       },
       "original": {
         "owner": "kyren223",
+        "ref": "v0.1.0",
         "repo": "eko",
         "type": "github"
       }
