@@ -15,6 +15,9 @@
     services.eko.certFile = config.sops.secrets.eko-server-cert-key.path;
     services.eko.openFirewall = true;
 
+    # Make sure eko doesn't restart unless I explicitly restart it
+    systemd.services.eko.serviceConfig.Restart = lib.mkForce "no";
+
     environment.etc = {
       "eko/tos.md".text = builtins.readFile ./eko-tos.md;
       "eko/privacy.md".text = builtins.readFile ./eko-privacy.md;
