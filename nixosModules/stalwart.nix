@@ -105,7 +105,7 @@
           directory = "https://acme-v02.api.letsencrypt.org/directory";
           challenge = "dns-01";
           contact = "user1@kyren.codes";
-          domains = [ "kyren.codes" "mx1.kyren.codes" ];
+          domains = [ "kyren.codes" "mx1.kyren.codes" "eko.kyren.codes" ];
           provider = "cloudflare";
           secret = "%{file:${config.sops.secrets.cloudflare-email-token.path}}%";
         };
@@ -116,7 +116,7 @@
         storage.directory = "in-memory";
         session.rcpt.directory = "'in-memory'";
         # queue.outbound.next-hop = "'local'";
-        directory."imap".lookup.domains = [ "kyren.codes" ];
+        directory."imap".lookup.domains = [ "kyren.codes" "eko.kyren.codes" ];
         directory."in-memory" = {
           type = "memory";
           principals = [
