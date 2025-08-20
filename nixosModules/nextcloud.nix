@@ -68,12 +68,6 @@
         adminuser = "admin";
         adminpassFile = config.sops.secrets.nextcloud-admin-password.path;
       };
-      ensureUsers = {
-        kyren = {
-          email = "contact@kyren.codes";
-          passwordFile = config.sops.secrets.nextcloud-kyren-password.path;
-        };
-      };
     };
   };
 }
