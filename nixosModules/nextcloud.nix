@@ -37,7 +37,7 @@
       database.createLocally = true;
       configureRedis = true;
 
-      maxUploadSize = "16G";
+      maxUploadSize = "32G";
       https = true;
       # enableBrokenCiphersForSSE = false;
 
