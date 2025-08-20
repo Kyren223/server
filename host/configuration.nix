@@ -47,6 +47,7 @@
     fastfetch
     inetutils
     inotify-tools
+    net-tools
   ];
 
   # Enable dynamic linking
