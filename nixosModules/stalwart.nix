@@ -16,14 +16,10 @@
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
 
-    environment.etc = {
-      "stalwart/mail-pw1".text = "foobar";
-      "stalwart/mail-pw2".text = "foobar";
-      "stalwart/admin-pw".text = "foobar";
-      "stalwart/acme-secret".text = "secret123";
-    };
-
     sops.secrets.cloudflare-email-token = { owner = "stalwart-mail"; group = "stalwart-mail"; };
+    sops.secrets.stalwart-admin-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
+    sops.secrets.stalwart-kyren-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
+    sops.secrets.stalwart-postmaster-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
 
     services.nginx.virtualHosts."webadmin.kyren.codes" = {
       useACMEHost = "kyren.codes";
@@ -127,21 +123,21 @@
           principals = [
             {
               class = "individual";
-              name = "User 1";
-              secret = "%{file:/etc/stalwart/mail-pw1}%";
-              email = [ "user1@kyren.codes" ];
+              name = "kyren";
+              secret = "%{file:${config.sops.secrets.stalwart-kyren-password.path}}%";
+              email = [ "contact@kyren.codes" ];
             }
             {
               class = "individual";
               name = "postmaster";
-              secret = "%{file:/etc/stalwart/mail-pw1}%";
+              secret = "%{file:${config.sops.secrets.stalwart-postmaster-password.path}}%";
               email = [ "postmaster@kyren.codes" ];
             }
           ];
         };
         authentication.fallback-admin = {
           user = "admin";
-          secret = "%{file:/etc/stalwart/admin-pw}%";
+          secret = "%{file:${config.sops.secrets.stalwart-admin-password.path}}%";
         };
       };
     };
