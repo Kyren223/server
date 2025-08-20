@@ -19,6 +19,7 @@
     sops.secrets.cloudflare-email-token = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-admin-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-kyren-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
+    sops.secrets.stalwart-eko-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-postmaster-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
 
     services.nginx.virtualHosts."webadmin.kyren.codes" = {
@@ -115,6 +116,7 @@
         };
         storage.directory = "in-memory";
         session.rcpt.directory = "'in-memory'";
+        session.rcpt.catch-all = true;
         # queue.outbound.next-hop = "'local'";
         directory."imap".lookup.domains = [ "kyren.codes" "eko.kyren.codes" ];
         directory."in-memory" = {
@@ -124,7 +126,13 @@
               class = "individual";
               name = "kyren";
               secret = "%{file:${config.sops.secrets.stalwart-kyren-password.path}}%";
-              email = [ "contact@kyren.codes" ];
+              email = [ "contact@kyren.codes" "@kyren.codes" ];
+            }
+            {
+              class = "individual";
+              name = "eko";
+              secret = "%{file:${config.sops.secrets.stalwart-eko-password.path}}%";
+              email = [ "support@eko.kyren.codes" "privacy@eko.kyren.codes" "@eko.kyren.codes" ];
             }
             {
               class = "individual";
