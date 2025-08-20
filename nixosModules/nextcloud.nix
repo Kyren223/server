@@ -27,7 +27,7 @@
 
     # Define the password and disable php from caching the path to it
     sops.secrets.nextcloud-admin-password = { owner = "nextcloud"; group = "nextcloud"; };
-    services.nextcloud.phpOptions."realpath_cache_size" = "0";
+    # services.nextcloud.phpOptions."realpath_cache_size" = "0";
 
     services.nextcloud = {
       enable = true;
