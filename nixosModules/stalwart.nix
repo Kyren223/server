@@ -117,7 +117,7 @@
         };
         storage.directory = "in-memory";
         session.rcpt.directory = "'in-memory'";
-        queue.outbound.next-hop = "'local'";
+        queue.strategy.route = "'local'";
         directory."imap".lookup.domains = [ "kyren.codes" ];
         directory."in-memory" = {
           type = "memory";
