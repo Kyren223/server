@@ -132,7 +132,7 @@
               class = "individual";
               name = "eko";
               secret = "%{file:${config.sops.secrets.stalwart-eko-password.path}}%";
-              email = [ "support@eko.kyren.codes" "privacy@eko.kyren.codes" "@eko.kyren.codes" ];
+              email = [ "contact@eko.kyren.codes" "support@eko.kyren.codes" "privacy@eko.kyren.codes" "@eko.kyren.codes" ];
             }
             {
               class = "individual";
