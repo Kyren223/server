@@ -11,7 +11,7 @@
   config = lib.mkIf config.stalwart.enable {
 
     # Open http and https ports to the public
-    networking.firewall.allowedTCPPorts = [ 443 80 ];
+    networking.firewall.allowedTCPPorts = [ 443 80 993 25 465 143 587 ];
 
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
@@ -84,7 +84,8 @@
               protocol = "smtp";
             };
             imaps = {
-              bind = "[::]:993";
+              # bind = "[::]:993";
+              bind = ["0.0.0.0:993" "[::]:993"];
               protocol = "imap";
             };
             # jmap = {
