@@ -23,6 +23,8 @@
       "stalwart/acme-secret".text = "secret123";
     };
 
+    sops.secrets.cloudflare-email-token = { owner = "stalwart-mail"; group = "stalwart-mail"; };
+
     services.nginx.virtualHosts."webadmin.kyren.codes" = {
       useACMEHost = "kyren.codes";
       # enableACME = true;
@@ -110,7 +112,7 @@
           contact = "user1@kyren.codes";
           domains = [ "kyren.codes" "mx1.kyren.codes" ];
           provider = "cloudflare";
-          secret = "%{file:/etc/stalwart/acme-secret}%";
+          secret = "%{file:${config.sops.secrets.cloudflare-email-token.path}}%";
         };
         session.auth = {
           mechanisms = "[plain]";
