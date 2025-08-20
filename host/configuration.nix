@@ -74,7 +74,7 @@
   nextcloud.enable = false;
   wakapi.enable = true;
   eko.enable = true;
-  stalwart.enable = false;
+  stalwart.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
