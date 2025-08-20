@@ -76,9 +76,6 @@
           listener = {
             smtp = {
               protocol = "smtp";
-              # bind = "0.0.0.0:25,[::]:25";
-              # bind = ["0.0.0.0:25" "[::]:25"];
-              # bind = [":25"];
               bind = ["[::]:25"];
             };
             submissions = {
@@ -86,9 +83,6 @@
               protocol = "smtp";
             };
             imaps = {
-              # bind = "[::]:993";
-              # bind = ["0.0.0.0:993" "[::]:993"];
-              # bind = [":993"];
               bind = ["[::]:993"];
               protocol = "imap";
             };
