@@ -89,11 +89,11 @@
               bind = "[::]:993";
               protocol = "imap";
             };
-            jmap = {
-              bind = "[::]:8081";
-              url = "https://mail.kyren.codes";
-              protocol = "jmap";
-            };
+            # jmap = {
+            #   bind = "[::]:8081";
+            #   url = "https://mail.kyren.codes";
+            #   protocol = "jmap";
+            # };
             management = {
               bind = [ "127.0.0.1:8081" ];
               protocol = "http";
