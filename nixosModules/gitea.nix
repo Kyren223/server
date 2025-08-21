@@ -39,13 +39,13 @@
 
     sops.secrets.gitea-db-password = { owner = config.services.gitea.user; };
 
-    # users.groups.git = { };
-    # users.users.git = {
-    #   isSystemUser = true;
-    #   group = "git";
-    #   home = "/var/lib/gitea";
-    #   description = "Gitea Service";
-    # };
+    users.groups.git = { };
+    users.users.git = {
+      isSystemUser = true;
+      group = "git";
+      home = "/var/lib/gitea";
+      description = "Gitea Service";
+    };
 
     services.gitea = {
       enable = true;
