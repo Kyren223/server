@@ -52,7 +52,7 @@
         # name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
-        # createDatabase = false;
+        createDatabase = false;
       };
       settings.server = {
         DOMAIN = "git.kyren.codes";
