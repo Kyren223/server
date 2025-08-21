@@ -30,6 +30,9 @@
           name = "git";
           # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
         }
+        {
+          name = "gitea";
+        }
       ];
     };
 
