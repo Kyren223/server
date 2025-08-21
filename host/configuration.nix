@@ -61,9 +61,13 @@
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = false;
 
+  # Set shell to vi mode (instead of emacs, ew) and also $EDITOR to nvim
   environment.etc."inputrc".text = ''
     set editing-mode vi
     set keymap vi
+  '';
+  users.users.root.shellInit = ''
+    export EDITOR=nvim
   '';
 
   users.users.root.hashedPassword = "$y$j9T$ZT9dUDb5fMGtQTQumYE49.$KI98XnTuykSgTAeP/gttTzEaj0Ys834WxAtKzT1CAb6";
