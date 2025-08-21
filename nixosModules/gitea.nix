@@ -49,6 +49,8 @@
         ROOT_URL = "https://git.kyren.codes/";
         HTTP_PORT = 3001;
       };
+      mailerPasswordFile = config.sops.secrets.stalwart-git-password.path;
+      extraConfig = builtins.readFile ./gitea.ini;
     };
   };
 }
