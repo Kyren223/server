@@ -26,11 +26,11 @@
     services.postgresql = {
       ensureDatabases = [ "gitea" ];
       ensureUsers = [
-        {
-          name = "git";
-          # ensureDBOwnership = true;
-          # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
-        }
+        # {
+        #   name = "git";
+        #   # ensureDBOwnership = true;
+        #   # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+        # }
         {
           name = "gitea";
         }
@@ -55,7 +55,7 @@
       user = "git";
       group = "git";
       database = {
-        user = "git";
+        user = "gitea";
         # name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
