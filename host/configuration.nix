@@ -66,7 +66,7 @@
     set editing-mode vi
     set keymap vi
   '';
-  users.users.root.shellInit = ''
+  environment.variables = ''
     export EDITOR=nvim
   '';
 
