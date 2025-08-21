@@ -48,10 +48,10 @@
       appName = "Kyren's Code";
       user = "git";
       database = {
-        user = "git";
-        name = "git";
+        user = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
+        createDatabase = false;
       };
       settings.server = {
         DOMAIN = "git.kyren.codes";
