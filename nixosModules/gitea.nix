@@ -41,7 +41,7 @@
 
     users.groups.git = { };
     users.users.git = {
-      isSystemUser = true;
+      isNormalUser = true;
       group = "git";
       home = "/var/lib/gitea";
       description = "Gitea Service";
