@@ -49,13 +49,13 @@
     services.gitea = {
       enable = true;
       appName = "Kyren's Code";
-      user = "git";
+      # user = "git";
       database = {
-        user = "git";
-        name = "gitea";
+        # user = "gitea";
+        # name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
-        createDatabase = false;
+        # createDatabase = false;
       };
       settings.server = {
         DOMAIN = "git.kyren.codes";
