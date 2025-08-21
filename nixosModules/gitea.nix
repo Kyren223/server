@@ -24,16 +24,16 @@
     # Configure database
     services.postgresql.enable = true;
     services.postgresql = {
-      ensureDatabases = [ "gitea" ];
+      ensureDatabases = [ "git" ];
       ensureUsers = [
-        # {
-        #   name = "git";
-        #   # ensureDBOwnership = true;
-        #   # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
-        # }
         {
-          name = "gitea";
+          name = "git";
+          # ensureDBOwnership = true;
+          # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
         }
+        # {
+        #   name = "gitea";
+        # }
       ];
     };
 
@@ -50,11 +50,11 @@
     services.gitea = {
       enable = true;
       appName = "Kyren's Code";
-      # user = "git";
-      # group = "git";
+      user = "git";
+      group = "git";
       database = {
-        # user = "gitea";
-        # name = "gitea";
+        user = "git";
+        name = "git";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
         # createDatabase = false;
