@@ -37,9 +37,7 @@
       ];
     };
 
-    sops.secrets.gitea-db-password = {
-      owner = config.services.gitea.user;
-    };
+    sops.secrets.gitea-db-password = { owner = config.services.gitea.user; };
 
     users.groups.git = { };
     users.users.git = {
@@ -55,7 +53,7 @@
       user = "git";
       group = "git";
       database = {
-        user = "gitea";
+        # user = "gitea";
         # name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
