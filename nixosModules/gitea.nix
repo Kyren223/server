@@ -51,7 +51,7 @@
       appName = "Kyren's Code";
       user = "git";
       database = {
-        user = "gitea";
+        user = "git";
         name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
