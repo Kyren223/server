@@ -12,7 +12,7 @@
 
     system.autoUpgrade = {
       enable = true;
-      flake = "github:kyren223/server#default";
+      flake = "git+https://git.kyren.codes/kyren223/server#default";
       dates = "minutely"; # Poll interval
       flags = [
         "--no-write-lock-file" # Prevent flake.lock from upgrading
