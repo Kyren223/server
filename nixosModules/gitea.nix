@@ -37,12 +37,19 @@
       owner = config.services.gitea.user;
     };
 
+    users.groups.git = { };
+    users.users.git = {
+      isNormalUser = true;
+      group = "git";
+    };
+
     services.gitea = {
       enable = true;
       appName = "Kyren's Code";
       user = "git";
       database = {
         user = "git";
+        name = "git";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
       };
