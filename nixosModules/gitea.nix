@@ -28,7 +28,7 @@
       ensureUsers = [
         {
           name = "git";
-          ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+          # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
         }
       ];
     };
