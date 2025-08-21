@@ -39,7 +39,8 @@
 
     services.gitea = {
       enable = true;
-      appName = "Kyren's Gitea";
+      appName = "Kyren's Code";
+      user = "git";
       database = {
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
