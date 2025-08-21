@@ -50,9 +50,9 @@
       database = {
         user = "git";
         name = "git";
-        type = "postgres";
-        passwordFile = config.sops.secrets.gitea-db-password.path;
-        createDatabase = false;
+        # type = "postgres";
+        # passwordFile = config.sops.secrets.gitea-db-password.path;
+        # createDatabase = false;
       };
       settings.server = {
         DOMAIN = "git.kyren.codes";
