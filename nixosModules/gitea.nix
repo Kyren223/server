@@ -27,8 +27,8 @@
       ensureDatabases = [ "gitea" ];
       ensureUsers = [
         {
-          name = "gitea";
-          # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
+          name = "git";
+          ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
         }
       ];
     };
@@ -48,8 +48,8 @@
       appName = "Kyren's Code";
       user = "git";
       database = {
-        user = "git";
-        # name = "gitea";
+        user = "gitea";
+        name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
         createDatabase = false;
