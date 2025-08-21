@@ -28,6 +28,7 @@
       ensureUsers = [
         {
           name = "git";
+          ensureDBOwnership = true;
           # ensurePermissions."DATABASE ${config.services.gitea.database.name}" = "ALL PRIVILEGES";
         }
         {
@@ -42,16 +43,19 @@
 
     users.groups.git = { };
     users.users.git = {
-      isNormalUser = true;
+      isSystemUser = true;
       group = "git";
+      home = "/var/lib/gitea";
+      description = "Gitea Service";
     };
 
     services.gitea = {
       enable = true;
       appName = "Kyren's Code";
-      # user = "git";
+      user = "git";
+      group = "git";
       database = {
-        # user = "gitea";
+        user = "git";
         # name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
