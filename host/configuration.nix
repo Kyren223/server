@@ -48,6 +48,7 @@
     inetutils
     inotify-tools
     net-tools
+    gitea
   ];
 
   # Enable dynamic linking
