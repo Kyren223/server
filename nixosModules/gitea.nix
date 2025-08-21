@@ -39,25 +39,25 @@
 
     sops.secrets.gitea-db-password = { owner = config.services.gitea.user; };
 
-    users.groups.git = { };
-    users.users.git = {
-      isSystemUser = true;
-      group = "git";
-      home = "/var/lib/gitea";
-      description = "Gitea Service";
-    };
+    # users.groups.git = { };
+    # users.users.git = {
+    #   isSystemUser = true;
+    #   group = "git";
+    #   home = "/var/lib/gitea";
+    #   description = "Gitea Service";
+    # };
 
     services.gitea = {
       enable = true;
       appName = "Kyren's Code";
-      user = "git";
-      group = "git";
+      # user = "git";
+      # group = "git";
       database = {
         # user = "gitea";
         # name = "gitea";
         type = "postgres";
         passwordFile = config.sops.secrets.gitea-db-password.path;
-        createDatabase = false;
+        # createDatabase = false;
       };
       settings.server = {
         DOMAIN = "git.kyren.codes";
