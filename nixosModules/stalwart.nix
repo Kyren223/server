@@ -21,7 +21,7 @@
     sops.secrets.stalwart-kyren-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-eko-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-git-password = { owner = "stalwart-mail"; group = "git"; mode = "0440"; };
-    # sops.secrets.stalwart-nextcloud-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
+    sops.secrets.stalwart-nextcloud-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-postmaster-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
 
     services.nginx.virtualHosts."webadmin.kyren.codes" = {
@@ -142,12 +142,12 @@
               secret = "%{file:${config.sops.secrets.stalwart-git-password.path}}%";
               email = [ "git@kyren.codes" ];
             }
-            # {
-            #   class = "individual";
-            #   name = "nextcloud";
-            #   secret = "%{file:${config.sops.secrets.stalwart-nextcloud-password.path}}%";
-            #   email = [ "nextcloud@kyren.codes" ];
-            # }
+            {
+              class = "individual";
+              name = "nextcloud";
+              secret = "%{file:${config.sops.secrets.stalwart-nextcloud-password.path}}%";
+              email = [ "nextcloud@kyren.codes" ];
+            }
             {
               class = "individual";
               name = "postmaster";
