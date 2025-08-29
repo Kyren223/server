@@ -59,17 +59,6 @@
       settings = {
         overwrite_protocol = "https";
         default_phone_region = "PT";
-
-        mail_smtpmode = "smtp";
-        mail_sendmailmode = "smtp";
-        mail_smtphost = "mx1.kyren.codes";
-        mail_smtpauth = 1;
-        mail_smtpport = 587;
-        mail_from_address = "nextcloud";
-        mail_domain = "kyren.codes";
-        mail_smtptimeout = 30;
-        mail_smtpname = "nextcloud";
-        mail_smtppassword = "temp";
       };
 
       config = {
