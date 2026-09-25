@@ -22,6 +22,7 @@
       locations."/".extraConfig = "proxy_set_header Host $host;";
     };
 
+    users.users.grafana.isNormalUser = true;
     services.grafana = {
       enable = false;
       settings = {
