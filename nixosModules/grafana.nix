@@ -23,7 +23,7 @@
     };
 
     services.grafana = {
-      enable = true;
+      enable = false;
       settings = {
         server.http_port = 3030;
         server.domain = "grafana.kyren.codes";
