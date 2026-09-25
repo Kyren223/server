@@ -67,6 +67,7 @@
 
     services.stalwart-mail = {
       enable = true;
+      stateVersion = "24.05";
       package = pkgs.stalwart-mail;
       openFirewall = true;
       settings = {
