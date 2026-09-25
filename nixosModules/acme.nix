@@ -18,7 +18,9 @@
         CF_DNS_API_TOKEN_FILE=${config.sops.secrets.cloudflare-dns-api-token.path}
       ''}";
       webroot = null;
+      group = "acme";
     };
+
 
     # Allow nginx to access acme certs
     users.users.nginx.extraGroups = [ "acme" ];

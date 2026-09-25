@@ -21,8 +21,8 @@
 
     services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       forceSSL = true;
-      enableACME = true;
-      # useACMEHost = "kyren.codes";
+      # enableACME = true;
+      useACMEHost = "kyren.codes";
     };
 
     # Define the password and disable php from caching the path to it
