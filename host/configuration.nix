@@ -79,7 +79,7 @@
 
   # Apps
   website.enable = true;
-  actualBudget.enable = true;
+  actualBudget.enable = false;
   gitea.enable = true;
   syncthing.enable = true;
   nextcloud.enable = true;
