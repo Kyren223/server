@@ -15,11 +15,11 @@
     # Make sure acme module is active for the "kyren.codes" ssl cert
     acme.enable = true;
 
-    services.nginx.virtualHosts."git.kyren.codes" = {
-      useACMEHost = "kyren.codes";
-      forceSSL = true;
-      locations."/".proxyPass = "http://localhost:3001/";
-    };
+    # services.nginx.virtualHosts."git.kyren.codes" = {
+    #   useACMEHost = "kyren.codes";
+    #   forceSSL = true;
+    #   locations."/".proxyPass = "http://localhost:3001/";
+    # };
 
     # Configure database
     services.postgresql.enable = true;
