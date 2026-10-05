@@ -48,7 +48,9 @@
     inetutils
     inotify-tools
     net-tools
-    gitea
+    tmux
+    file
+    strings
   ];
 
   # Enable dynamic linking
