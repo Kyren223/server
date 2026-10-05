@@ -20,7 +20,7 @@
     sops.secrets.stalwart-admin-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-kyren-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-eko-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
-    sops.secrets.stalwart-git-password = { owner = "stalwart-mail"; group = "git"; mode = "0440"; };
+    # sops.secrets.stalwart-git-password = { owner = "stalwart-mail"; group = "git"; mode = "0440"; };
     sops.secrets.stalwart-nextcloud-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
     sops.secrets.stalwart-postmaster-password = { owner = "stalwart-mail"; group = "stalwart-mail"; };
 
@@ -137,12 +137,12 @@
               secret = "%{file:${config.sops.secrets.stalwart-eko-password.path}}%";
               email = [ "contact@eko.kyren.codes" "support@eko.kyren.codes" "privacy@eko.kyren.codes" "@eko.kyren.codes" ];
             }
-            {
-              class = "individual";
-              name = "git";
-              secret = "%{file:${config.sops.secrets.stalwart-git-password.path}}%";
-              email = [ "git@kyren.codes" ];
-            }
+            # {
+            #   class = "individual";
+            #   name = "git";
+            #   secret = "%{file:${config.sops.secrets.stalwart-git-password.path}}%";
+            #   email = [ "git@kyren.codes" ];
+            # }
             {
               class = "individual";
               name = "nextcloud";
