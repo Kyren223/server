@@ -33,6 +33,7 @@
 
     services.nginx.enable = true;
     services.nginx.virtualHosts."kyren.codes" = {
+      # defaultServer = true;
       useACMEHost = "kyren.codes";
       forceSSL = true;
       locations."/" = {
