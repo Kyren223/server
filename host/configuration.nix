@@ -50,7 +50,14 @@
     net-tools
     tmux
     file
-    strings
+    binutils
+    ripgrep fd
+    jq yq
+    wget
+    zip unzip
+    lsof
+    sysstat
+    iotop
   ];
 
   # Enable dynamic linking
