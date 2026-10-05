@@ -59,6 +59,12 @@
     sysstat
     iotop
   ];
+  
+  programs.bash.shellAliases = {
+    nix-journal = "journalctl -o cat -f -u nixos-rebuild-switch-to-configuration";
+    journal = "journalctl -o cat -f -u";
+    nix-rb = "nixos-rebuild switch";
+  };
 
   # Enable dynamic linking
   programs.nix-ld.enable = true;
@@ -93,7 +99,7 @@
   syncthing.enable = true;
   nextcloud.enable = true;
   wakapi.enable = true;
-  eko.enable = true;
+  eko.enable = false;
   stalwart.enable = true;
 
   # Automatically pull this config from git
