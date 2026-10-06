@@ -39,6 +39,7 @@
       extraConfig = ''
         project-list=/var/lib/gitolite/projects.list
         scan-path=/var/lib/gitolite/repositories
+        css=/custom-cgit.css
       '';
       nginx.location = "/";
     };
@@ -47,6 +48,7 @@
     services.nginx.virtualHosts."git.kyren.codes" = {
       useACMEHost = "kyren.codes";
       forceSSL = true;
+      locations."/custom-cgit.css".alias = "${./cgit.css}";
     };
 
   };
