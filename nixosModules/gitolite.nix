@@ -29,7 +29,7 @@
     };
 
     # Ensure cgit has perms to read gitolite repos
-    users.users.cgit.extraGroups = [ "git" ];
+    users.users.cgit.extraGroups = [ "git" "nginx" ];
 
     services.cgit."git.kyren.codes" = {
       enable = true;
