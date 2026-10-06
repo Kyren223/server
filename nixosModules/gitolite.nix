@@ -26,6 +26,7 @@
     services.cgit."git.kyren.codes" = {
       enable = true;
       scanPath = "/var/lib/gitolite";
+      gitHttpBackend.enable = false;
     };
 
     programs.git.config = {
