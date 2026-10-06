@@ -42,7 +42,6 @@
     services.nginx.virtualHosts."git.kyren.codes" = {
       useACMEHost = "kyren.codes";
       forceSSL = true;
-      cgit.enable = true;
     };
 
     programs.git.config = {
