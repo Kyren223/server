@@ -35,10 +35,10 @@
     services.cgit."git.kyren.codes" = {
       enable = true;
       gitHttpBackend.enable = false;
+      scanPath = "/var/lib/gitolite";
       extraConfig = ''
         project-list=/var/lib/gitolite/projects.list
       '';
-      repos = "/var/lib/gitolite/repositories";
       nginx.location = "/";
     };
 
