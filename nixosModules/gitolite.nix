@@ -48,7 +48,9 @@
     services.nginx.virtualHosts."git.kyren.codes" = {
       useACMEHost = "kyren.codes";
       forceSSL = true;
-      locations."/custom-cgit.css".alias = "${./cgit.css}";
+      locations."= /custom-cgit.css" = {
+        alias = "${./cgit.css}";
+      };
     };
 
   };
