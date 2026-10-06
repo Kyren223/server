@@ -61,11 +61,11 @@
     iotop
   ];
 
-  programs.bash.shellAliases = {
-    nix-journal = "journalctl -o cat -f -u nixos-rebuild-switch-to-configuration";
-    journal = "journalctl -o cat -f -u";
-    nix-rb = "nixos-rebuild switch";
-  };
+  programs.bash.interactiveShellInit = ''
+    alias nix-journal="journalctl -o cat -f -u nixos-rebuild-switch-to-configuration"
+    alias journal="journalctl -o cat -f -u"
+    alias nix-rb="nixos-rebuild switch"
+  '';
 
   # Enable dynamic linking
   programs.nix-ld.enable = true;
