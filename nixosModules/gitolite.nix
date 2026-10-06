@@ -14,7 +14,6 @@
       isSystemUser = true;
       group = "git";
       home = "/var/lib/gitolite";
-      description = "gitolite Service";
     };
 
     services.gitolite = {
