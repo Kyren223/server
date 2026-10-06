@@ -65,6 +65,7 @@
     alias nix-journal="journalctl -o cat -f -u nixos-rebuild-switch-to-configuration"
     alias journal="journalctl -o cat -f -u"
     alias nix-rb="nixos-rebuild switch"
+    alias nixup="systemctl restart nixos-upgrade"
   '';
 
   # Enable dynamic linking

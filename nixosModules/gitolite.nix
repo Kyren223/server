@@ -36,6 +36,7 @@
       extraConfig = ''
         project-list=/var/lib/gitolite/projects.list
       '';
+      nginx.location = "/";
     };
 
     services.nginx.enable = true;
