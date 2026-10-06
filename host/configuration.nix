@@ -8,6 +8,7 @@
     ./../nixosModules/auto-updade.nix
     ./../nixosModules/actual-budget.nix
     ./../nixosModules/gitea.nix
+    ./../nixosModules/gitolite.nix
     ./../nixosModules/syncthing.nix
     ./../nixosModules/nextcloud.nix
     ./../nixosModules/wakapi.nix
