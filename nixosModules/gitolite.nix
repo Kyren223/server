@@ -48,9 +48,5 @@
       forceSSL = true;
     };
 
-    programs.git.config = {
-      init.defaultBranch = "master";
-    };
-
   };
 }
