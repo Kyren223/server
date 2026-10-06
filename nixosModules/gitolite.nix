@@ -37,8 +37,8 @@
       gitHttpBackend.enable = false;
       extraConfig = ''
         project-list=/var/lib/gitolite/projects.list
-        scan-path=/var/lib/gitolite/repositories
       '';
+      repos = "/var/lib/gitolite/repositories";
       nginx.location = "/";
     };
 
