@@ -23,9 +23,14 @@
       adminPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren";
     };
 
-    programs.git.config = {
-      init.defaultBranch = "master"
+    services.cgit."git.kyren.codes" = {
+      enable = true;
+      scanPath = "/var/lib/gitolite";
     };
-  
+
+    programs.git.config = {
+      init.defaultBranch = "master";
+    };
+
   };
 }
