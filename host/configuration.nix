@@ -60,7 +60,7 @@
     sysstat
     iotop
   ];
-  
+
   programs.bash.shellAliases = {
     nix-journal = "journalctl -o cat -f -u nixos-rebuild-switch-to-configuration";
     journal = "journalctl -o cat -f -u";
