@@ -38,6 +38,13 @@
       '';
     };
 
+    services.nginx.enable = true;
+    services.nginx.virtualHosts."git.kyren.codes" = {
+      useACMEHost = "kyren.codes";
+      forceSSL = true;
+      cgit.enable = true;
+    };
+
     programs.git.config = {
       init.defaultBranch = "master";
     };
