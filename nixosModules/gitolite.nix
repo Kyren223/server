@@ -11,7 +11,7 @@
   config = lib.mkIf config.gitolite.enable {
     users.groups.git = { };
     users.users.git = {
-      isNormalUser = true;
+      isSystemUser = true;
       group = "git";
       home = "/var/lib/gitolite";
       description = "gitolite Service";
