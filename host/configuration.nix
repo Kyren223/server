@@ -101,6 +101,7 @@
   wakapi.enable = true;
   eko.enable = false;
   stalwart.enable = true;
+  gitolite.enable = true;
 
   # Automatically pull this config from git
   autoUpdate.enable = true;
