@@ -21,12 +21,21 @@
       user = "git";
       group = "git";
       adminPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7P9K9D5RkBk+JCRRS6AtHuTAc6cRpXfRfRMg/Kyren";
+      extraGitoliteRc = ''
+        $RC{UMASK} = 0027;
+      '';
     };
+
+    # Ensure cgit has perms to read gitolite repos
+    users.users.cgit.extraGroups = [ "git" ];
 
     services.cgit."git.kyren.codes" = {
       enable = true;
-      scanPath = "/var/lib/gitolite";
+      scanPath = "/var/lib/gitolite/repositories";
       gitHttpBackend.enable = false;
+      extraConfig = ''
+        project-list=/var/lib/gitolite/projects.list
+      '';
     };
 
     programs.git.config = {
