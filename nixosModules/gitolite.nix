@@ -35,7 +35,7 @@
     services.cgit."git.kyren.codes" = {
       enable = true;
       gitHttpBackend.enable = false;
-      repos = { foo = {}; };
+      repos = { foo = { path = "/var/lib/gitolite/testing.git"; }; };
       extraConfig = ''
         project-list=/var/lib/gitolite/projects.list
         scan-path=/var/lib/gitolite/repositories
