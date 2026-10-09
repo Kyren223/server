@@ -53,5 +53,14 @@
       };
     };
 
+    # Specify git config for gitolite
+    environment.etc."gitolite.gitconfig".text = ''
+      [init]
+          defaultBranch = master
+    '';
+    systemd.tmpfiles.rules = [
+      "L+ /var/lib/gitolite/.gitconfig - - - - /etc/gitolite.gitconfig"
+    ];
+
   };
 }
