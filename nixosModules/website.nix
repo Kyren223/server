@@ -86,6 +86,14 @@
       locations."/" = {
         proxyPass = "http://127.0.0.1:8080";
       };
+      # Static assets caching
+      locations."/public/" = {
+        proxyPass = "http://127.0.0.1:8080";
+        extraConfig = ''
+          expires 5m;
+          add_header Cache-Control "public, max-age=300, must-revalidate";
+        '';
+      };
     };
   };
 }
