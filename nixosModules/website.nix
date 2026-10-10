@@ -90,7 +90,7 @@
       locations."/public/" = {
         proxyPass = "http://127.0.0.1:8080";
         extraConfig = ''
-          add_header Cache-Control "no-cache";
+          add_header Cache-Control "public, max-age=300";
         '';
       };
     };
