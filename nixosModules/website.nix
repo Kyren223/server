@@ -84,7 +84,7 @@
       useACMEHost = "kyren.codes";
       forceSSL = true;
       locations."/" = {
-        proxyPass = "http://127.0.0.1:7331";
+        proxyPass = "http://127.0.0.1:8080";
       };
     };
   };
