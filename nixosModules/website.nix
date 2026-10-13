@@ -82,6 +82,7 @@
 
         Environment = [
           "MY_UPTIME_TOKEN_FILE=${config.sops.secrets.website-my-uptime-token.path}"
+          "PORT=8090"
         ];
 
         # Hardening
@@ -130,6 +131,20 @@
       # Static assets caching
       locations."/public/" = {
         proxyPass = "http://127.0.0.1:8080";
+        extraConfig = ''
+          add_header Cache-Control "public, max-age=300";
+        '';
+      };
+    };
+    services.nginx.virtualHosts."beta.kyren.codes" = {
+      useACMEHost = "kyren.codes";
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8090";
+      };
+      # Static assets caching
+      locations."/public/" = {
+        proxyPass = "http://127.0.0.1:8090";
         extraConfig = ''
           add_header Cache-Control "public, max-age=300";
         '';
