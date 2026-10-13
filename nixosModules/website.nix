@@ -108,11 +108,17 @@
     };
 
     security.sudo.extraRules = [{
-        users = [ "website" ];
-        commands = [{
+      users = [ "website" ];
+      commands = [
+        {
             command = "/run/current-system/sw/bin/systemctl restart website";
             options = [ "NOPASSWD" ];
-        }];
+        }
+        {
+            command = "/run/current-system/sw/bin/systemctl restart website-beta";
+            options = [ "NOPASSWD" ];
+        }
+      ];
     }];
 
     # Open http and https ports to the public
