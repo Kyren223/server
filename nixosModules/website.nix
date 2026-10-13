@@ -26,6 +26,7 @@
       ];
     };
 
+    # Main service
     systemd.services.website = {
       description = "Website";
       after = [ "network.target" ];
@@ -36,6 +37,46 @@
         Group = "website";
         WorkingDirectory = "/var/lib/website";
         ExecStart = "/var/lib/website/website";
+        Restart = "always";
+        RestartSec = "3s";
+
+        Environment = [
+          "MY_UPTIME_TOKEN_FILE=${config.sops.secrets.website-my-uptime-token.path}"
+        ];
+
+        # Hardening
+        CapabilityBoundingSet = "";
+        NoNewPrivileges = true;
+        PrivateTmp = true;
+        ProtectHome = true;
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        ProtectProc = "invisible";
+        ProtectSystem = "strict";
+        RestrictAddressFamilies = [
+          "AF_INET"
+          "AF_INET6"
+          "AF_UNIX"
+        ];
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+      };
+    };
+
+    # Beta service
+    systemd.services.website-beta = {
+      description = "Website Beta";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        User = "website";
+        Group = "website";
+        WorkingDirectory = "/var/lib/website";
+        ExecStart = "/var/lib/website/website-beta";
         Restart = "always";
         RestartSec = "3s";
 
