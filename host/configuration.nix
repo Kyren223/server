@@ -99,7 +99,7 @@
   actualBudget.enable = false;
   gitea.enable = false;
   syncthing.enable = true;
-  nextcloud.enable = true;
+  nextcloud.enable = false;
   wakapi.enable = true;
   eko.enable = false;
   stalwart.enable = true;
